@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Widget Builder</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:#0f172a;
+padding:40px;
+color:white;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+}
+
+h1{
+font-size:42px;
+margin-bottom:30px;
+}
+
+.builder{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+}
+
+.panel{
+background:#1e293b;
+padding:25px;
+border-radius:20px;
+}
+
+.input{
+margin-bottom:20px;
+}
+
+.input label{
+display:block;
+margin-bottom:8px;
+font-weight:bold;
+}
+
+.input input,
+.input textarea{
+width:100%;
+padding:14px;
+border:none;
+border-radius:12px;
+font-size:16px;
+}
+
+textarea{
+height:120px;
+resize:none;
+}
+
+button{
+width:100%;
+padding:16px;
+border:none;
+background:#3b82f6;
+color:white;
+font-size:17px;
+border-radius:14px;
+cursor:pointer;
+transition:.3s;
+font-weight:bold;
+}
+
+button:hover{
+transform:scale(1.02);
+}
+
+.preview{
+background:white;
+border-radius:20px;
+padding:30px;
+min-height:500px;
+}
+
+.code{
+margin-top:25px;
+background:#020617;
+padding:20px;
+border-radius:15px;
+overflow:auto;
+}
+
+code{
+color:#38bdf8;
+white-space:pre-wrap;
+font-size:13px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Generador de Widgets</h1>
+
+<div class="builder">
+
+<div class="panel">
+
+<div class="input">
+<label>Título</label>
+<input type="text" id="title" placeholder="Oferta exclusiva">
+</div>
+
+<div class="input">
+<label>Descripción</label>
+<textarea id="description" placeholder="Compra ahora y consigue descuento"></textarea>
+</div>
+
+<div class="input">
+<label>Texto botón</label>
+<input type="text" id="buttonText" placeholder="Comprar">
+</div>
+
+<div class="input">
+<label>Enlace botón</label>
+<input type="text" id="buttonLink" placeholder="https://">
+</div>
+
+<div class="input">
+<label>Color widget</label>
+<input type="color" id="color" value="#3b82f6">
+</div>
+
+<button onclick="generateWidget()">
+GENERAR WIDGET
+</button>
+
+</div>
+
+<div class="preview">
+
+<div id="widgetPreview"></div>
+
+<div class="code">
+<code id="embedCode"></code>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function generateWidget(){
+
+const title = document.getElementById("title").value;
+const description = document.getElementById("description").value;
+const buttonText = document.getElementById("buttonText").value;
+const buttonLink = document.getElementById("buttonLink").value;
+const color = document.getElementById("color").value;
+
+const widget = `
+<div style="
+background:${color};
+padding:30px;
+border-radius:20px;
+max-width:400px;
+margin:auto;
+text-align:center;
+font-family:Arial;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+">
+
+<h2 style="
+font-size:32px;
+margin-bottom:15px;
+color:white;
+">
+${title}
+</h2>
+
+<p style="
+font-size:18px;
+margin-bottom:25px;
+color:white;
+line-height:1.5;
+">
+${description}
+</p>
+
+<a href="${buttonLink}" target="_blank"
+style="
+display:inline-block;
+padding:15px 28px;
+background:white;
+color:black;
+text-decoration:none;
+border-radius:12px;
+font-weight:bold;
+font-size:16px;
+">
+${buttonText}
+</a>
+
+</div>
+`;
+
+document.getElementById("widgetPreview").innerHTML = widget;
+
+const embed = `
+<!-- WIDGET START -->
+
+<div id="custom-widget"></div>
+
+<script>
+document.getElementById("custom-widget").innerHTML = \`
+
+${widget.replace(/`/g, '\\`')}
+
+\`;
+<\/script>
+
+<!-- WIDGET END -->
+`;
+
+document.getElementById("embedCode").textContent = embed;
+
+}
+
+</script>
+
+</body>
+</html>
