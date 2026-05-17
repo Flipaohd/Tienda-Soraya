@@ -3,114 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Soraya — Gestor Técnico Avanzado</title>
+<title>Soraya — Gestor de Productos Profesional</title>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Jost',sans-serif;background:#fcfaf7;color:#1a1410;min-height:100vh;}
+body{font-family:'Jost',sans-serif;background:#f5f5f5;color:#1a1410;min-height:100vh;}
 :root{--gold:#b8860b;--dark:#1a1410;--border:#e0d8d0;--cream:#faf7f2;--rose:#f5ece8;--red:#dc2626;}
 
 .hdr{background:var(--dark);color:#fff;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
-.hdr-title{font-family:'Cormorant Garamond',serif;font-size:24px;letter-spacing:2px;}
+.hdr-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;letter-spacing:2px;}
 .hdr-sub{font-size:11px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
 .hdr-badge{background:rgba(184,134,11,0.2);color:var(--gold);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;}
 
-.wrap{max-width:1300px;margin:0 auto;padding:24px 16px;}
-.grid{display:grid;grid-template-columns:420px 1fr;gap:24px;}
+.wrap{max-width:1100px;margin:0 auto;padding:24px 16px;}
+.grid{display:grid;grid-template-columns:400px 1fr;gap:24px;}
 
-.panel{background:#fff;border:1px solid var(--border);border-radius:8px;overflow:hidden;box-shadow:0 4px 15px rgba(0,0,0,0.02);}
-.panel-head{background:var(--dark);color:#fff;padding:16px 20px;font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;}
+.panel{background:#fff;border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+.panel-head{background:var(--dark);color:#fff;padding:16px 20px;font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;display:flex;align-items:center;gap:8px;}
 .panel-body{padding:20px;}
 
 .fg{margin-bottom:14px;}
-.fg label{display:block;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#777;margin-bottom:6px;}
-.fg input,.fg select,.fg textarea{width:100%;padding:11px 13px;border:1px solid var(--border);border-radius:4px;font-family:'Jost',sans-serif;font-size:14px;outline:none;background:#fff;}
-.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(184,134,11,0.1);}
-.fg textarea{resize:vertical;min-height:70px;}
+.fg label{display:block;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-bottom:6px;}
+.fg input,.fg select,.fg textarea{width:100%;padding:10px 13px;border:1px solid var(--border);border-radius:4px;font-family:'Jost',sans-serif;font-size:14px;outline:none;background:#fff;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold);}
+.fg textarea{resize:vertical;min-height:80px;}
 .fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 
-.img-container{background:#fdfbfa;border:2px dashed var(--border);border-radius:6px;padding:20px;text-align:center;position:relative;}
-.btn-upload-file{background:var(--dark);color:#fff;padding:8px 16px;border-radius:4px;font-size:12px;display:inline-block;margin-top:8px;cursor:pointer;font-weight:500;}
-.btn-upload-file:hover{background:var(--gold);}
-.img-prev{max-width:100%;height:140px;object-fit:contain;display:none;margin:10px auto 0;border-radius:4px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.05);}
+.img-upload{border:2px dashed var(--border);border-radius:6px;padding:16px;text-align:center;cursor:pointer;transition:border-color 0.2s;position:relative;background:#fdfdfd;}
+.img-upload:hover{border-color:var(--gold);}
+.img-upload input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+.img-upload p{font-size:13px;color:#aaa;margin-top:6px;}
+.img-prev{width:100%;height:160px;object-fit:contain;display:none;border-radius:4px;background:var(--rose);}
 
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:12px 20px;border:none;border-radius:6px;cursor:pointer;font-family:'Jost',sans-serif;font-size:13px;font-weight:600;transition:all 0.2s;}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:12px 20px;border:none;border-radius:6px;cursor:pointer;font-family:'Jost',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.5px;transition:all 0.2s;}
 .btn-gold{background:var(--gold);color:#fff;}
-.btn-gold:hover{background:#966e09;}
-.btn-dark{background:var(--dark);color:#fff;}
+.btn-gold:hover{background:#d4a843;}
 .btn-red{background:var(--red);color:#fff;}
-.btn-outline{background:#fff;color:var(--dark);border:1px solid var(--border);}
-.btn-outline:hover{border-color:var(--dark);}
-.btn-full{width:100%;}
+.btn-outline{background:#fff;color:var(--dark);border:2px solid var(--border);}
+.btn-full{width:100%;justify-content:center;}
 
-.prod-item{display:flex;align-items:center;gap:12px;padding:12px;border:1px solid var(--border);border-radius:6px;margin-bottom:8px;background:#fff;}
-.prod-img{width:50px;height:50px;background:var(--rose);border-radius:4px;overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.prod-item{display:flex;align-items:center;gap:12px;padding:14px;border:1px solid var(--border);border-radius:6px;margin-bottom:8px;background:#fff;}
+.prod-img{width:56px;height:70px;background:var(--rose);border-radius:4px;overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:24px;}
 .prod-img img{width:100%;height:100%;object-fit:contain;}
 .prod-info{flex:1;min-width:0;}
-.prod-info h3{font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.prod-info .cat{font-size:10px;color:#999;text-transform:uppercase;}
-.prod-info .price{font-size:14px;color:var(--gold);font-weight:700;}
+.prod-info h3{font-size:14px;font-weight:600;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.prod-info .cat{font-size:10px;color:#aaa;text-transform:uppercase;}
+.prod-info .price{font-size:15px;color:var(--gold);font-weight:700;}
+.prod-actions{display:flex;flex-direction:column;gap:6px;}
 
-.export-box{background:var(--dark);border-radius:8px;padding:20px;color:#fff;margin-bottom:20px;}
-.export-box h3{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--gold);margin-bottom:8px;}
-.export-box p{font-size:12px;color:#ccc;line-height:1.5;margin-bottom:12px;}
-
-.code-box{width:100%;height:120px;background:#000;color:#0f0;font-family:monospace;font-size:11px;padding:10px;border-radius:4px;margin-top:10px;overflow-y:auto;white-space:pre-wrap;word-break:break-all;}
+.export-box{background:var(--dark);border-radius:8px;padding:24px;color:#fff;text-align:center;}
+.export-box h3{font-family:'Cormorant Garamond',serif;font-size:24px;margin-bottom:10px;}
+.export-box p{font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:20px;}
 
 .toast{position:fixed;bottom:20px;right:20px;background:var(--dark);color:#fff;padding:12px 20px;border-radius:6px;font-size:13px;z-index:9999;opacity:0;transform:translateY(8px);transition:all 0.3s;border-left:3px solid var(--gold);}
 .toast.show{opacity:1;transform:translateY(0);}
-.empty{text-align:center;padding:30px;color:#999;font-size:13px;}
-
-@media(max-width:800px){.grid{grid-template-columns:1fr;}}
+.empty{text-align:center;padding:40px 20px;color:#aaa;}
 </style>
 </head>
 <body>
 
 <div class="hdr">
   <div>
-    <div class="hdr-title">Soraya Perfumes</div>
-    <div class="hdr-sub">Consola de Administración de Productos</div>
+    <div class="hdr-title">Soraya Perfumes y Cosméticos</div>
+    <div class="hdr-sub">Gestor de Productos Profesional</div>
   </div>
-  <div class="hdr-badge" id="prodCount">0 Productos</div>
+  <div class="hdr-badge" id="prodCount">0 productos</div>
 </div>
 
 <div class="wrap">
   <div class="grid">
     <div>
       <div class="panel">
-        <div class="panel-head">📋 Ficha del Producto</div>
+        <div class="panel-head">➕ Añadir / Editar Producto</div>
         <div class="panel-body">
-          
           <div class="fg">
-            <label>Fotografía del Producto</label>
-            <div class="img-container">
-              <div id="placeholderText">
-                <span style="font-size:28px">📸</span><br>
-                <span class="btn-upload-file">Seleccionar Archivo</span>
-              </div>
+            <label>Foto del producto</label>
+            <div class="img-upload">
               <img id="fotoPrev" class="img-prev">
-              <input type="file" id="fotoInput" accept="image/*" style="position:absolute;inset:0;opacity:0;cursor:pointer;" onchange="procesarImagen(this)">
+              <div id="fotoPlaceholder">
+                <div style="font-size:32px">📸</div>
+                <p>Haz clic para subir o cambiar foto</p>
+              </div>
+              <input type="file" id="fotoInput" accept="image/*" onchange="cargarFoto(this)">
             </div>
           </div>
-
-          <div class="fg">
-            <label>Nombre Comercial *</label>
-            <input type="text" id="fNombre" placeholder="Ej: Yara Lattafa Perfume Árabe">
-          </div>
-
+          <div class="fg"><label>Nombre del producto *</label><input type="text" id="fNombre" placeholder="Ej: Yara Lattafa EDP 100ml"></div>
           <div class="fg-row">
-            <div class="fg">
-              <label>Precio (€) *</label>
-              <input type="number" id="fPrecio" placeholder="29.90" step="0.01">
-            </div>
-            <div class="fg">
-              <label>Precio Anterior (€)</label>
-              <input type="number" id="fPrecioAntes" placeholder="45.00" step="0.01">
-            </div>
+            <div class="fg"><label>Precio (€) *</label><input type="number" id="fPrecio" placeholder="29.90" step="0.01"></div>
+            <div class="fg"><label>Precio anterior</label><input type="number" id="fPrecioAntes" placeholder="45.00" step="0.01"></div>
           </div>
-
-          <div class="fg">
-            <label>Categoría Web *</label>
+          <div class="fg"><label>Categoría *</label>
             <select id="fCat">
               <option value="perfumes-mujer">Perfumes Mujer</option>
               <option value="perfumes-hombre">Perfumes Hombre</option>
@@ -125,85 +107,69 @@ body{font-family:'Jost',sans-serif;background:#fcfaf7;color:#1a1410;min-height:1
               <option value="moda-mujer">Moda Mujer</option>
             </select>
           </div>
-
           <div class="fg-row">
-            <div class="fg">
-              <label>Etiqueta Visual</label>
+            <div class="fg"><label>Etiqueta</label>
               <select id="fBadge">
-                <option value="">Ninguna</option>
+                <option value="">Sin etiqueta</option>
                 <option value="Nuevo">Nuevo</option>
                 <option value="Oferta">Oferta</option>
-                <option value="Top Ventas">Top Ventas</option>
+                <option value="Más vendido">Más vendido</option>
               </select>
             </div>
-            <div class="fg">
-              <label>Variantes / Tamaños</label>
-              <input type="text" id="fSizes" placeholder="100ml, 50ml">
-            </div>
+            <div class="fg"><label>Tamaños</label><input type="text" id="fSizes" placeholder="100ml, 50ml"></div>
           </div>
-
-          <div class="fg">
-            <label>Descripción Breve</label>
-            <textarea id="fDesc" placeholder="Detalles o notas olfativas..."></textarea>
-          </div>
-
+          <div class="fg"><label>Descripción</label><textarea id="fDesc" placeholder="Detalles u notas olfativas..."></textarea></div>
           <input type="hidden" id="editId" value="">
-          <button class="btn btn-gold btn-full" onclick="agregarOEditar()" id="btnSubmit">✨ Publicar Producto</button>
-          <button class="btn btn-outline btn-full" onclick="limpiar()" id="btnCancel" style="display:none; margin-top:8px;">Cancelar Edición</button>
+          
+          <button class="btn btn-gold btn-full" onclick="guardarProducto()" id="btnGuardar">✓ Publicar Producto</button>
+          <button class="btn btn-outline btn-full" onclick="limpiarForm()" id="btnCancelar" style="display:none; margin-top:8px;">✕ Cancelar edición</button>
         </div>
       </div>
     </div>
 
     <div>
-      <div class="export-box">
-        <h3>⚡ Panel de Sincronización Estructurada</h3>
-        <p>Añade tus productos a la izquierda. Al terminar elige tu método preferido para guardar:</p>
-        
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
-          <button class="btn btn-gold" onclick="descargarIndexCompleto()">💾 Descargar index.html completo</button>
-          <button class="btn btn-outline" onclick="copiarSoloDatos()">📋 Copiar Solo Datos Técnicos</button>
-        </div>
-
-        <div style="margin-top:14px;">
-          <label style="font-size:11px; text-transform:uppercase; color:var(--gold); font-weight:600;">Código Vivo de Productos (Base de Datos Real):</label>
-          <textarea class="code-box" id="codigoVivo" readonly onclick="this.select()"></textarea>
-        </div>
+      <div class="export-box" style="margin-bottom:20px;">
+        <h3>📥 Generador Automatizado</h3>
+        <p>Añade tus productos a la izquierda. Al terminar, genera tu nueva web oficial con un solo clic.</p>
+        <button class="btn btn-gold btn-full" style="font-size:15px;padding:16px;" onclick="generarWebCompleta()">
+          🚀 Descargar Nueva Web (index.html)
+        </button>
       </div>
 
       <div class="panel">
-        <div class="panel-head">📦 Inventario Actual en Memoria</div>
-        <div class="panel-body" id="lista">
-          <div class="empty">No has agregado ningún producto todavía en esta sesión.</div>
+        <div class="panel-head">📦 Inventario de Productos Guardados</div>
+        <div class="panel-body" id="listaProductos">
+          <div class="empty"><p>No hay productos guardados todavía.</p></div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="toast" id="popupToast"></div>
+<div class="toast" id="toast"></div>
 
 <script>
-let productos = JSON.parse(localStorage.getItem('soraya_db_prods')) || [];
-let imagenBase64Actual = "";
+let products = JSON.parse(localStorage.getItem('soraya_perfumes_prods')) || [];
+let currentImgBase64 = "";
 
 window.onload = function() {
-  refrescarPantalla();
+  renderLista();
 };
 
-function procesarImagen(input) {
+function cargarFoto(input) {
   if (input.files && input.files[0]) {
-    let lector = new FileReader();
-    lector.onload = function(e) {
-      imagenBase64Actual = e.target.result;
-      document.getElementById('fotoPrev').src = imagenBase64Actual;
+    let reader = new FileReader();
+    reader.onload = function(e) {
+      currentImgBase64 = e.target.result;
+      document.getElementById('fotoPrev').src = currentImgBase64;
       document.getElementById('fotoPrev').style.display = 'block';
-      document.getElementById('placeholderText').style.display = 'none';
-    }
-    lector.readAsDataURL(input.files[0]);
+      document.getElementById('fotoPlaceholder').style.display = 'none';
+    };
+    reader.readAsDataURL(input.files[0]);
   }
 }
 
-function agregarOEditar() {
+function guardarProducto() {
   const nombre = document.getElementById('fNombre').value.trim();
   const precio = parseFloat(document.getElementById('fPrecio').value);
   const precioAntes = parseFloat(document.getElementById('fPrecioAntes').value) || null;
@@ -214,14 +180,14 @@ function agregarOEditar() {
   const editId = document.getElementById('editId').value;
 
   if (!nombre || isNaN(precio)) {
-    mostrarAviso("⚠️ Por favor rellena los campos obligatorios (*)");
+    showToast("⚠️ Rellena los campos obligatorios (*) por favor");
     return;
   }
 
   if (editId === "") {
-    // NUEVO
+    // Crear nuevo producto
     const nuevo = {
-      id: "p_" + Date.now(),
+      id: "prod_" + Date.now(),
       name: nombre,
       price: precio,
       oldPrice: precioAntes,
@@ -229,65 +195,63 @@ function agregarOEditar() {
       badge: badge,
       sizes: sizes ? sizes.split(',').map(s => s.trim()) : [],
       desc: desc,
-      img: imagenBase64Actual || "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100%' height='100%' fill='%23f5ece8'/><text x='50%' y='55%' font-family='sans-serif' font-size='12' fill='%23aaa' text-anchor='middle'>Sin foto</text></svg>"
+      img: currentImgBase64 || "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='%23eee'><rect width='100%25' height='100%25'/></svg>"
     };
-    productos.push(nuevo);
-    mostrarAviso("✓ Producto agregado con éxito");
+    products.push(nuevo);
+    showToast("✓ Producto agregado");
   } else {
-    // EDITANDO
-    let idx = productos.findIndex(p => p.id === editId);
+    // Editar existente
+    let idx = products.findIndex(p => p.id === editId);
     if (idx !== -1) {
-      productos[idx].name = nombre;
-      productos[idx].price = precio;
-      productos[idx].oldPrice = precioAntes;
-      productos[idx].category = cat;
-      productos[idx].badge = badge;
-      productos[idx].sizes = sizes ? sizes.split(',').map(s => s.trim()) : [];
-      productos[idx].desc = desc;
-      if (imagenBase64Actual) {
-        productos[idx].img = imagenBase64Actual;
-      }
+      products[idx].name = nombre;
+      products[idx].price = precio;
+      products[idx].oldPrice = precioAntes;
+      products[idx].category = cat;
+      products[idx].badge = badge;
+      products[idx].sizes = sizes ? sizes.split(',').map(s => s.trim()) : [];
+      products[idx].desc = desc;
+      if(currentImgBase64) products[idx].img = currentImgBase64;
     }
-    mostrarAviso("✓ Modificación guardada");
+    showToast("✓ Cambios guardados en el producto");
   }
 
-  limpiar();
-  refrescarPantalla();
+  limpiarForm();
+  renderLista();
 }
 
-function eliminar(id) {
-  if (confirm("¿Seguro que deseas eliminar este artículo de la lista?")) {
-    productos = productos.filter(p => p.id !== id);
-    mostrarAviso("❌ Artículo removido");
-    refrescarPantalla();
-  }
-}
+function iniciarEdicion(id) {
+  const p = products.find(prod => prod.id === id);
+  if (!p) return;
 
-function activarEdicion(id) {
-  let prod = productos.find(p => p.id === id);
-  if (!prod) return;
+  document.getElementById('fNombre').value = p.name;
+  document.getElementById('fPrecio').value = p.price;
+  document.getElementById('fPrecioAntes').value = p.oldPrice || "";
+  document.getElementById('fCat').value = p.category;
+  document.getElementById('fBadge').value = p.badge || "";
+  document.getElementById('fSizes').value = p.sizes ? p.sizes.join(', ') : "";
+  document.getElementById('fDesc').value = p.desc || "";
+  document.getElementById('editId').value = p.id;
 
-  document.getElementById('fNombre').value = prod.name;
-  document.getElementById('fPrecio').value = prod.price;
-  document.getElementById('fPrecioAntes').value = prod.oldPrice || "";
-  document.getElementById('fCat').value = prod.category;
-  document.getElementById('fBadge').value = prod.badge || "";
-  document.getElementById('fSizes').value = prod.sizes ? prod.sizes.join(', ') : "";
-  document.getElementById('fDesc').value = prod.desc || "";
-  document.getElementById('editId').value = prod.id;
-
-  if (prod.img && prod.img.startsWith('data:')) {
-    document.getElementById('fotoPrev').src = prod.img;
+  if (p.img) {
+    document.getElementById('fotoPrev').src = p.img;
     document.getElementById('fotoPrev').style.display = 'block';
-    document.getElementById('placeholderText').style.display = 'none';
-    imagenBase64Actual = prod.img;
+    document.getElementById('fotoPlaceholder').style.display = 'none';
+    currentImgBase64 = p.img;
   }
 
-  document.getElementById('btnSubmit').innerText = "💾 Conservar Cambios";
-  document.getElementById('btnCancel').style.display = "block";
+  document.getElementById('btnGuardar').innerText = "💾 Conservar Cambios";
+  document.getElementById('btnCancelar').style.display = "block";
 }
 
-function limpiar() {
+function eliminarProducto(id) {
+  if (confirm("¿Seguro que deseas eliminar este producto?")) {
+    products = products.filter(p => p.id !== id);
+    showToast("❌ Producto eliminado");
+    renderLista();
+  }
+}
+
+function limpiarForm() {
   document.getElementById('fNombre').value = "";
   document.getElementById('fPrecio').value = "";
   document.getElementById('fPrecioAntes').value = "";
@@ -296,66 +260,59 @@ function limpiar() {
   document.getElementById('editId').value = "";
   document.getElementById('fotoInput').value = "";
   document.getElementById('fotoPrev').style.display = 'none';
-  document.getElementById('placeholderText').style.display = 'block';
-  imagenBase64Actual = "";
-
-  document.getElementById('btnSubmit').innerText = "✨ Publicar Producto";
-  document.getElementById('btnCancel').style.display = "none";
+  document.getElementById('fotoPlaceholder').style.display = 'block';
+  currentImgBase64 = "";
+  document.getElementById('btnGuardar').innerText = "✓ Publicar Producto";
+  document.getElementById('btnCancelar').style.display = "none";
 }
 
-function refrescarPantalla() {
-  localStorage.setItem('soraya_db_prods', JSON.stringify(productos));
-  document.getElementById('prodCount').innerText = productos.length + " Productos";
+function renderLista() {
+  localStorage.setItem('soraya_perfumes_prods', JSON.stringify(products));
+  document.getElementById('prodCount').innerText = products.length + " productos";
   
-  const contenedor = document.getElementById('lista');
-  if (productos.length === 0) {
-    contenedor.innerHTML = '<div class="empty">No has agregado ningún producto todavía en esta sesión.</div>';
-    document.getElementById('codigoVivo').value = "[]";
+  const container = document.getElementById('listaProductos');
+  if (products.length === 0) {
+    container.innerHTML = '<div class="empty"><p>No hay productos todavía.</p></div>';
     return;
   }
 
   let html = "";
-  productos.forEach(p => {
+  products.forEach(p => {
     html += `
       <div class="prod-item">
         <div class="prod-img"><img src="${p.img}"></div>
         <div class="prod-info">
-          <h3>${p.name}</h3>
+          <h3>${p.name} ${p.badge ? `<span class="prod-badge">${p.badge}</span>`:''}</h3>
           <div class="cat">${p.category}</div>
           <div class="price">${p.price.toFixed(2)} €</div>
         </div>
-        <div style="display:flex; gap:6px;">
-          <button class="btn btn-outline btn-sm" onclick="activarEdicion('${p.id}')">✏️</button>
-          <button class="btn btn-red btn-sm" onclick="eliminar('${p.id}')">🗑️</button>
+        <div class="prod-actions">
+          <button class="btn btn-outline btn-sm" onclick="iniciarEdicion('${p.id}')">✏️</button>
+          <button class="btn btn-red btn-sm" onclick="eliminarProducto('${p.id}')">🗑️</button>
         </div>
       </div>
     `;
   });
-  contenedor.innerHTML = html;
-
-  // Actualizar la caja de texto en tiempo real con JSON limpio
-  document.getElementById('codigoVivo').value = JSON.stringify(productos, null, 2);
+  container.innerHTML = html;
 }
 
-function copiarSoloDatos() {
-  const box = document.getElementById('codigoVivo');
-  box.select();
-  document.execCommand('copy');
-  mostrarAviso("📋 ¡Datos copiados al portapapeles con éxito!");
-}
-
-function mostrarAviso(msg) {
-  const t = document.getElementById('popupToast');
+function showToast(msg) {
+  const t = document.getElementById('toast');
   t.innerText = msg;
   t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 3500);
+  setTimeout(() => t.classList.remove('show'), 3000);
 }
 
-function descargarIndexCompleto() {
-  // Generación dinámica limpia de index.html usando una plantilla profesional inyectable.
-  const jsonDb = JSON.stringify(productos);
+function generarWebCompleta() {
+  if(products.length === 0) {
+    alert("Por favor, añade al menos un producto antes de exportar la web.");
+    return;
+  }
   
-  let plantilla = `<!DOCTYPE html>
+  const jsonProductos = JSON.stringify(products);
+
+  // Generamos un index.html nativo ultra-profesional idéntico al tuyo pero inyectando los datos vivos
+  let codigoWeb = `<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -367,30 +324,31 @@ function descargarIndexCompleto() {
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden;}
 .topbar{background:var(--dark);color:var(--gold-light);text-align:center;padding:8px 20px;font-size:12px;letter-spacing:2px;font-weight:500;text-transform:uppercase;}
-header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:1000;box-shadow:0 2px 20px rgba(0,0,0,0.06);}
-.header-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:18px 30px;}
-.logo-main{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;letter-spacing:3px;color:var(--dark);text-transform:uppercase;line-height:1.1;text-align:center;}
-.logo-sub{font-size:10px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;text-align:center;}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:1000;}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:18px 30px;}
+.logo{text-align:center;width:100%;}
+.logo-main{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;letter-spacing:3px;color:var(--dark);text-transform:uppercase;}
+.logo-sub{font-size:11px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;font-weight:500;}
 nav{background:var(--dark);overflow-x:auto;}
 .nav-inner{max-width:1400px;margin:0 auto;display:flex;justify-content:center;padding:0 10px;}
-.nav-link{color:rgba(255,255,255,0.85);font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:14px 15px;display:block;text-decoration:none;white-space:nowrap;cursor:pointer;}
+.nav-link{color:rgba(255,255,255,0.85);font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:14px 16px;display:block;text-decoration:none;white-space:nowrap;cursor:pointer;}
 .nav-link:hover{color:var(--gold-light);}
 .section{padding:40px 20px;max-width:1300px;margin:0 auto;}
-.section-title{font-family:'Cormorant Garamond',serif;font-size:32px;text-align:center;margin-bottom:30px;text-transform:uppercase;letter-spacing:1px;}
-.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:24px;}
-.product-card{background:var(--white);border:1px solid var(--border);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;position:relative;transition:transform 0.2s;}
-.product-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,0.05);}
-.product-img{height:280px;background:#fff;display:flex;align-items:center;justify-content:center;padding:12px;position:relative;}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:32px;text-align:center;margin-bottom:35px;text-transform:uppercase;letter-spacing:1px;}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px;}
+.product-card{background:var(--white);border:1px solid var(--border);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;transition:all 0.3s;}
+.product-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,0.06);}
+.product-img{height:300px;background:#fff;display:flex;align-items:center;justify-content:center;padding:12px;position:relative;}
 .product-img img{max-width:100%;max-height:100%;object-fit:contain;}
-.product-badge{position:absolute;top:10px;left:10px;background:var(--gold);color:#fff;font-size:10px;padding:3px 8px;font-weight:600;text-transform:uppercase;border-radius:2px;}
-.product-info{padding:16px;flex:1;display:flex;flex-direction:column;justify-content:between;}
-.product-title{font-size:14px;font-weight:500;margin-bottom:8px;color:var(--dark);}
-.product-price{font-size:18px;font-weight:600;color:var(--gold);}
+.product-badge{position:absolute;top:12px;left:12px;background:var(--gold);color:#fff;font-size:10px;padding:4px 10px;font-weight:700;text-transform:uppercase;border-radius:2px;}
+.product-info{padding:16px;flex:1;display:flex;flex-direction:column;}
+.product-title{font-size:14px;font-weight:500;margin-bottom:6px;color:var(--dark);line-height:1.4;}
+.product-price{font-size:18px;font-weight:600;color:var(--gold);margin-top:auto;}
 .old-price{font-size:13px;color:#aaa;text-decoration:line-through;margin-left:8px;}
-.product-sizes{font-size:11px;color:#888;margin-top:4px;}
-.product-desc{font-size:12px;color:#666;margin-top:6px;line-height:1.4;}
-.btn-wsp{background:#25D366;color:#fff;text-align:center;padding:10px;display:block;text-decoration:none;border-radius:4px;margin-top:12px;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;}
-footer{background:var(--dark);color:#fff;text-align:center;padding:30px;font-size:12px;margin-top:50px;letter-spacing:1px;}
+.product-sizes{font-size:11px;color:#888;margin-top:6px;background:#faf5f0;padding:3px 6px;display:inline-block;border-radius:3px;}
+.product-desc{font-size:12px;color:#666;margin-top:8px;line-height:1.4;font-style:italic;}
+.btn-wsp{background:#25D366;color:#fff;text-align:center;padding:11px;display:block;text-decoration:none;border-radius:4px;margin-top:14px;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;}
+footer{background:var(--dark);color:#fff;text-align:center;padding:35px;font-size:12px;margin-top:60px;letter-spacing:1px;}
 </style>
 </head>
 <body>
@@ -398,101 +356,96 @@ footer{background:var(--dark);color:#fff;text-align:center;padding:30px;font-siz
 <div class="topbar">Perfumería de Alta Gama &amp; Cosmética Exclusiva</div>
 <header>
   <div class="header-inner">
-    <div></div>
-    <div>
+    <div class="logo">
       <div class="logo-main">Soraya</div>
       <div class="logo-sub">Perfumes &amp; Cosméticos</div>
     </div>
-    <div></div>
   </div>
 </header>
 
 <nav>
   <div class="nav-inner">
-    <span class="nav-link" onclick="filtrar('todos')">Todos</span>
-    <span class="nav-link" onclick="filtrar('perfumes-mujer')">Mujer</span>
-    <span class="nav-link" onclick="filtrar('perfumes-hombre')">Hombre</span>
-    <span class="nav-link" onclick="filtrar('perfumes-unisex')">Árabes</span>
-    <span class="nav-link" onclick="filtrar('cremas')">Cosmética</span>
-    <span class="nav-link" onclick="filtrar('bolsos')">Bolsos</span>
+    <span class="nav-link" onclick="filtrarProductos('todos')">Todos</span>
+    <span class="nav-link" onclick="filtrarProductos('perfumes-mujer')">Mujer</span>
+    <span class="nav-link" onclick="filtrarProductos('perfumes-hombre')">Hombre</span>
+    <span class="nav-link" onclick="filtrarProductos('perfumes-unisex')">Árabes</span>
+    <span class="nav-link" onclick="filtrarProductos('cremas')">Cosmética</span>
+    <span class="nav-link" onclick="filtrarProductos('bolsos')">Bolsos</span>
   </div>
 </nav>
 
 <div class="section">
-  <h2 class="section-title" id="catTitle">Nuestro Catálogo completo</h2>
-  <div class="products-grid" id="gridProds"></div>
+  <h2 class="section-title" id="seccionTitulo">Catálogo Completo</h2>
+  <div class="products-grid" id="boxProductos"></div>
 </div>
 
 <footer>&copy; 2026 Soraya Perfumes y Cosméticos. Todos los derechos reservados.</footer>
 
 <script>
-// BASE DE DATOS INYECTADA
-const APIDB = ${jsonDb};
+const BASE_DE_DATOS = ${jsonProductos};
 
-function render(filtro = 'todos') {
-  const container = document.getElementById('gridProds');
-  container.innerHTML = "";
+function renderTienda(filtro = 'todos') {
+  const grid = document.getElementById('boxProductos');
+  grid.innerHTML = "";
   
-  let filtrados = filtro === 'todos' ? APIDB : APIDB.filter(p => p.category === filtro);
+  let filtrados = filtro === 'todos' ? BASE_DE_DATOS : BASE_DE_DATOS.filter(p => p.category === filtro);
   
   if(filtrados.length === 0) {
-    container.innerHTML = "<p style='grid-column:1/-1; text-align:center; padding:40px; color:#aaa;'>No hay productos disponibles en esta sección actualmente.</p>";
+    grid.innerHTML = "<p style='grid-column:1/-1; text-align:center; padding:40px; color:#999;'>No hay artículos disponibles en esta categoría.</p>";
     return;
   }
 
   filtrados.forEach(p => {
-    let txtBadge = p.badge ? \`<div class="product-badge">\${p.badge}</div>\` : '';
-    let txtOldPrice = p.oldPrice ? \`<span class="old-price">\${p.oldPrice.toFixed(2)} €</span>\` : '';
-    let txtSizes = p.sizes && p.sizes.length > 0 ? \`<div class="product-sizes">📦 Tamaños: \${p.sizes.join(', ')}</div>\` : '';
-    let txtDesc = p.desc ? \`<div class="product-desc">\${p.desc}</div>\` : '';
+    let htmlBadge = p.badge ? \`<div class="product-badge">\${p.badge}</div>\` : '';
+    let htmlOldPrice = p.oldPrice ? \`<span class="old-price">\${p.oldPrice.toFixed(2)} €</span>\` : '';
+    let htmlSizes = p.sizes && p.sizes.length > 0 ? \`<div class="product-sizes">📏 Tamaños: \${p.sizes.join(', ')}</div>\` : '';
+    let htmlDesc = p.desc ? \`<div class="product-desc">\${p.desc}</div>\` : '';
     
-    // Enlace directo de pedido a WhatsApp automatizado
-    let urlWsp = "https://wa.me/34600000000?text=" + encodeURIComponent("Hola Soraya, me interesa el producto: " + p.name + " (" + p.price.toFixed(2) + "€)");
+    let mensajeWsp = encodeURIComponent("¡Hola Soraya! Me gustaría pedir el siguiente producto:\\n- " + p.name + "\\n- Precio: " + p.price.toFixed(2) + "€");
+    let urlWhatsApp = "https://wa.me/34600000000?text=" + mensajeWsp; // Cambia el número aquí
 
-    container.innerHTML += \`
+    grid.innerHTML += \`
       <div class="product-card">
-        \${txtBadge}
+        \${htmlBadge}
         <div class="product-img"><img src="\${p.img}"></div>
         <div class="product-info">
           <div class="product-title">\${p.name}</div>
-          <div class="product-price">\${p.price.toFixed(2)} € \${txtOldPrice}</div>
-          \${txtSizes}
-          \${txtDesc}
-          <a href="\${urlWsp}" target="_blank" class="btn-wsp">💬 Pedir por WhatsApp</a>
+          \${htmlSizes}
+          \${htmlDesc}
+          <div class="product-price">\${p.price.toFixed(2)} € \${htmlOldPrice}</div>
+          <a href="\${urlWhatsApp}" target="_blank" class="btn-wsp">💬 Pedir por WhatsApp</a>
         </div>
       </div>
     \`;
   });
 }
 
-function filtrar(cat) {
+function filtrarProductos(categoria) {
   const titulos = {
-    'todos': 'Nuestro Catálogo completo',
+    'todos': 'Catálogo Completo',
     'perfumes-mujer': 'Perfumes para Mujer',
     'perfumes-hombre': 'Perfumes para Hombre',
     'perfumes-unisex': 'Perfumes Unisex &amp; Árabes',
     'cremas': 'Cremas &amp; Cosmética',
     'bolsos': 'Bolsos &amp; Carteras'
   };
-  document.getElementById('catTitle').innerHTML = titulos[cat] || 'Productos';
-  render(cat);
+  document.getElementById('seccionTitulo').innerHTML = titulos[categoria] || 'Productos';
+  renderTienda(categoria);
 }
 
-// Inicializar la Web al cargar
-render('todos');
+renderTienda('todos');
 <\/script>
 </body>
 </html>`;
 
-  var blob = new Blob([plantilla], {type: 'text/html;charset=utf-8'});
-  var url = URL.createObjectURL(blob);
-  var a = document.createElement('a');
-  a.href = url;
-  a.download = 'index.html';
-  a.style.display = 'none';
-  document.body.appendChild(a);
-  a.click();
-  setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); }, 2000);
+  let blob = new Blob([codigoWeb], {type: 'text/html;charset=utf-8'});
+  let url = URL.createObjectURL(blob);
+  let linkDescarga = document.createElement('a');
+  linkDescarga.href = url;
+  linkDescarga.download = 'index.html';
+  document.body.appendChild(linkDescarga);
+  linkDescarga.click();
+  document.body.removeChild(linkDescarga);
 }
 </script>
 </body>
