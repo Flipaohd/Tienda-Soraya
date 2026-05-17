@@ -2,145 +2,469 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Soraya Perfumes y Cosméticos</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 <style>
+
 :root{
-  --gold:#b8860b;--gold-l:#d4a843;--cream:#faf7f2;
-  --dark:#1a1410;--mid:#3d3530;--rose-l:#f5ece8;
-  --border:#e8ddd5;--white:#fff;
+--gold:#b8860b;
+--dark:#1a1410;
+--cream:#faf7f2;
+--rose:#f5ece8;
+--white:#fff;
 }
-*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
-html{scroll-behavior:smooth;}
-body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden;}
 
-/* ── TOPBAR ── */
-.topbar{background:var(--dark);color:var(--gold-l);text-align:center;padding:8px 16px;font-size:11px;letter-spacing:2px;font-weight:500;text-transform:uppercase;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+-webkit-tap-highlight-color:transparent;
+}
 
-/* ── HEADER ── */
-header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:500;box-shadow:0 2px 16px rgba(0,0,0,0.07);}
-.hdr{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 24px;gap:12px;}
-.logo{cursor:pointer;text-align:center;flex:1;}
-.logo-main{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;letter-spacing:3px;color:var(--dark);text-transform:uppercase;line-height:1.1;}
-.logo-sub{font-size:9px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;}
-.hdr-left,.hdr-right{display:flex;align-items:center;gap:16px;flex:1;}
-.hdr-right{justify-content:flex-end;}
-.hbtn{display:flex;flex-direction:column;align-items:center;gap:2px;background:none;border:none;cursor:pointer;font-family:inherit;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--mid);padding:6px;min-width:44px;min-height:44px;justify-content:center;}
-.hbtn svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.5;}
-.hbtn:hover,.hbtn:active{color:var(--gold);}
-.cart-wrap{position:relative;}
-.cart-badge{position:absolute;top:2px;right:2px;background:var(--gold);color:#fff;border-radius:50%;width:16px;height:16px;font-size:9px;display:flex;align-items:center;justify-content:center;font-weight:700;}
+body{
+font-family:'Jost',sans-serif;
+background:var(--cream);
+color:var(--dark);
+overflow-x:hidden;
+}
 
-/* ── HAMBURGER ── */
-.ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;min-width:44px;min-height:44px;justify-content:center;}
-.ham span{display:block;width:22px;height:2px;background:var(--dark);border-radius:2px;transition:all .3s;}
-.ham.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
-.ham.open span:nth-child(2){opacity:0;}
-.ham.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+.topbar{
+background:var(--dark);
+color:var(--gold);
+padding:10px;
+text-align:center;
+font-size:12px;
+letter-spacing:1px;
+}
 
-/* ── DESKTOP NAV ── */
-.dnav{background:var(--dark);}
-.dnav-inner{max-width:1400px;margin:0 auto;display:flex;justify-content:center;padding:0 24px;}
-.ni{position:relative;}
-.nl{color:rgba(255,255,255,.85);font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;padding:13px 16px;display:block;cursor:pointer;white-space:nowrap;transition:color .2s;}
-.nl:hover,.nl.act{color:var(--gold-l);}
-.dd{display:none;position:absolute;top:100%;left:0;background:var(--white);min-width:210px;border:1px solid var(--border);box-shadow:0 8px 30px rgba(0,0,0,.12);z-index:600;}
-.ni:hover .dd{display:block;}
-.dd a{display:block;padding:10px 18px;font-size:13px;color:var(--mid);border-bottom:1px solid var(--border);cursor:pointer;transition:background .2s,color .2s;}
-.dd a:last-child{border-bottom:none;}
-.dd a:hover{background:var(--rose-l);color:var(--gold);}
+header{
+background:#fff;
+padding:15px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:100;
+border-bottom:1px solid #ddd;
+}
 
-/* ── MOBILE MENU ── */
-.mob-menu{display:none;position:fixed;inset:0;background:var(--dark);z-index:800;flex-direction:column;padding:70px 28px 40px;overflow-y:auto;}
-.mob-menu.open{display:flex;}
-.mob-close{position:absolute;top:16px;right:16px;background:rgba(255,255,255,.1);border:none;color:#fff;width:40px;height:40px;border-radius:50%;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
-.mob-item{border-bottom:1px solid rgba(255,255,255,.1);}
-.mob-link{color:rgba(255,255,255,.9);font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;padding:16px 0;display:flex;justify-content:space-between;align-items:center;cursor:pointer;}
-.mob-link span{font-size:18px;color:rgba(255,255,255,.4);}
-.mob-sub{display:none;padding:0 0 12px 16px;}
-.mob-sub.open{display:block;}
-.mob-sub a{color:rgba(255,255,255,.6);font-size:15px;font-family:'Jost',sans-serif;display:block;padding:9px 0;cursor:pointer;}
-.mob-sub a:active{color:var(--gold-l);}
+.logo{
+text-align:center;
+flex:1;
+}
 
-/* ── PAGES ── */
-.page{display:none;}.page.active{display:block;}
+.logo h1{
+font-family:'Cormorant Garamond',serif;
+font-size:32px;
+letter-spacing:4px;
+}
 
-/* ── HERO ── */
-.hero{background:linear-gradient(135deg,var(--dark) 0%,#2d2015 50%,#1a0f0a 100%);min-height:480px;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 50%,rgba(184,134,11,.15),transparent 70%);}
-.hero-c{position:relative;z-index:2;padding:60px 20px;}
-.eyebrow{font-size:11px;letter-spacing:5px;color:var(--gold-l);text-transform:uppercase;font-weight:500;margin-bottom:18px;}
-.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,8vw,80px);font-weight:300;color:#fff;line-height:1.1;margin-bottom:18px;letter-spacing:2px;}
-.hero-title em{font-style:italic;color:var(--gold-l);}
-.hero-desc{font-size:15px;color:rgba(255,255,255,.6);max-width:480px;margin:0 auto 32px;line-height:1.8;}
-.btn{display:inline-block;padding:13px 36px;border:1px solid var(--gold-l);color:var(--gold-l);font-size:11px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:all .3s;font-weight:500;margin:5px;font-family:inherit;background:transparent;border-radius:2px;}
-.btn:hover,.btn.fill,.btn:active{background:var(--gold);border-color:var(--gold);color:var(--dark);}
-.btn.dark{background:var(--dark);color:#fff;border-color:var(--dark);}
-.btn.dark:hover{background:var(--gold);border-color:var(--gold);color:var(--dark);}
+.logo p{
+font-size:11px;
+letter-spacing:3px;
+color:var(--gold);
+}
 
-/* ── FEATURES ── */
-.feat-bar{background:var(--white);border-bottom:1px solid var(--border);padding:24px;}
-.feat-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
-.feat{display:flex;align-items:center;gap:12px;}
-.feat-ico{width:42px;height:42px;background:var(--rose-l);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:17px;}
-.feat-txt h4{font-size:13px;font-weight:600;}
-.feat-txt p{font-size:11px;color:#888;margin-top:2px;}
+.ham{
+background:none;
+border:none;
+font-size:26px;
+cursor:pointer;
+min-width:44px;
+min-height:44px;
+}
 
-/* ── SECTIONS ── */
-.sec{padding:56px 24px;}.sec.alt{background:var(--white);}
-.sec-hdr{text-align:center;margin-bottom:44px;}
-.sec-title{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:400;color:var(--dark);letter-spacing:1px;}
-.sec-line{width:48px;height:1px;background:var(--gold);margin:14px auto 0;}
+.cart-btn{
+background:none;
+border:none;
+font-size:24px;
+cursor:pointer;
+position:relative;
+min-width:44px;
+min-height:44px;
+}
 
-/* ── MISC ── */
-#toastEl{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--dark);color:#fff;padding:12px 24px;border-radius:30px;font-size:13px;z-index:2000;box-shadow:0 4px 20px rgba(0,0,0,0.15);transition:transform .3s cubic-bezier(0.175,0.885,0.32,1.275);opacity:0;}
-#toastEl.show{transform:translateX(-50%) translateY(0);opacity:1;}
+.badge{
+position:absolute;
+top:0;
+right:0;
+background:var(--gold);
+color:#fff;
+width:18px;
+height:18px;
+border-radius:50%;
+font-size:10px;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.hero{
+background:linear-gradient(135deg,#1a1410,#2d2015);
+color:#fff;
+padding:100px 20px;
+text-align:center;
+}
+
+.hero h2{
+font-family:'Cormorant Garamond',serif;
+font-size:60px;
+font-weight:300;
+margin-bottom:20px;
+}
+
+.hero p{
+max-width:600px;
+margin:auto;
+opacity:.8;
+line-height:1.8;
+}
+
+.btn{
+display:inline-block;
+padding:14px 28px;
+border:1px solid var(--gold);
+color:var(--gold);
+margin-top:30px;
+cursor:pointer;
+text-transform:uppercase;
+font-size:12px;
+letter-spacing:2px;
+min-height:44px;
+}
+
+.sec{
+padding:60px 20px;
+}
+
+.sec-title{
+font-family:'Cormorant Garamond',serif;
+font-size:42px;
+text-align:center;
+margin-bottom:40px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+max-width:1300px;
+margin:auto;
+}
+
+.card{
+background:#fff;
+border:1px solid #eee;
+overflow:hidden;
+}
+
+.card-img{
+height:260px;
+background:var(--rose);
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.card-img img{
+width:100%;
+height:100%;
+object-fit:contain;
+padding:10px;
+}
+
+.card-body{
+padding:15px;
+}
+
+.card h3{
+font-size:15px;
+margin-bottom:8px;
+}
+
+.price{
+font-family:'Cormorant Garamond',serif;
+font-size:28px;
+color:var(--gold);
+}
+
+.old{
+text-decoration:line-through;
+font-size:14px;
+opacity:.5;
+margin-left:6px;
+}
+
+.add{
+margin-top:12px;
+width:100%;
+background:var(--dark);
+color:#fff;
+border:none;
+padding:12px;
+cursor:pointer;
+min-height:44px;
+}
+
+footer{
+background:var(--dark);
+color:#fff;
+padding:50px 20px;
+margin-top:60px;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:30px;
+max-width:1200px;
+margin:auto;
+}
+
+.footer-grid h4{
+margin-bottom:14px;
+color:var(--gold);
+}
+
+.footer-grid p,
+.footer-grid a{
+font-size:14px;
+opacity:.7;
+line-height:1.8;
+display:block;
+color:#fff;
+text-decoration:none;
+}
+
+.copy{
+text-align:center;
+margin-top:40px;
+font-size:12px;
+opacity:.5;
+}
+
+@media(max-width:1024px){
+.grid{
+grid-template-columns:repeat(3,1fr);
+}
+}
+
+@media(max-width:600px){
+
+.grid{
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+}
+
+.hero h2{
+font-size:40px;
+}
+
+.footer-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(hover:none){
+.add{
+opacity:1;
+}
+}
+
 </style>
 </head>
+
 <body>
 
-<div class="topbar">Envío gratuito en pedidos superiores a 50€</div>
+<div class="topbar">
+✦ Desde 1991 tu perfumería de confianza · Envíos a toda España · Atención personalizada ✦
+</div>
 
 <header>
-  <div class="hdr">
-    <div class="hdr-left">
-      <button class="ham" id="ham" onclick="toggleMenu()">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <div class="logo" onclick="nav('home')">
-      <div class="logo-main">Soraya</div>
-      <div class="logo-sub">Perfumes y Cosméticos</div>
-    </div>
-    <div class="hdr-right">
-      <div class="cart-wrap">
-        <button class="hbtn" onclick="toggleCart()">
-          <svg viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-13L5 3H3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span>Carrito</span>
-        </button>
-        <div class="cart-badge" id="cartBadge">0</div>
-      </div>
-    </div>
-  </div>
+
+<button class="ham">☰</button>
+
+<div class="logo">
+<h1>SORAYA</h1>
+<p>Perfumes & Cosméticos</p>
+</div>
+
+<button class="cart-btn">
+🛍
+<div class="badge" id="badge">0</div>
+</button>
+
 </header>
 
-<div id="toastEl"></div>
+<section class="hero">
+
+<h2>Perfumería de lujo</h2>
+
+<p>
+Perfumes exclusivos, cosmética premium y moda elegante desde 1991.
+</p>
+
+<div class="btn">
+Descubrir colección
+</div>
+
+</section>
+
+<section class="sec">
+
+<h2 class="sec-title">
+Productos Destacados
+</h2>
+
+<div class="grid" id="products"></div>
+
+</section>
+
+<footer>
+
+<div class="footer-grid">
+
+<div>
+<h4>Soraya</h4>
+<p>Perfumería y cosmética desde 1991.</p>
+</div>
+
+<div>
+<h4>Tienda</h4>
+<a href="#">Perfumes</a>
+<a href="#">Cosmética</a>
+<a href="#">Moda</a>
+</div>
+
+<div>
+<h4>Ayuda</h4>
+<a href="#">Contacto</a>
+<a href="#">Cómo pagar</a>
+</div>
+
+<div>
+<h4>Pagos</h4>
+<p>📱 Bizum</p>
+<p>🏦 Transferencia</p>
+</div>
+
+</div>
+
+<div class="copy">
+© 2025 Soraya Perfumes y Cosméticos · Todos los derechos reservados
+</div>
+
+</footer>
 
 <script>
-function toggleMenu(){
-  var m=document.getElementById('mobMenu'),h=document.getElementById('ham');
-  var open=m.classList.toggle('open');h.classList.toggle('open',open);
-  document.body.style.overflow=open?'hidden':'';
+
+const DEFAULTS=[
+
+{
+id:1,
+name:"Yara Lattafa EDP Rosa",
+cat:"perfumes-mujer",
+price:22.90,
+oldPrice:39.90,
+imgData:"https://via.placeholder.com/300x400",
+badge:"Nuevo"
+},
+
+{
+id:2,
+name:"Yara Lattafa EDP Fucsia",
+cat:"perfumes-mujer",
+price:22.90,
+oldPrice:39.90,
+imgData:"https://via.placeholder.com/300x400",
+badge:"Oferta"
+},
+
+{
+id:3,
+name:"Sara Candy EDP",
+cat:"perfumes-mujer",
+price:19.90,
+oldPrice:null,
+imgData:"https://via.placeholder.com/300x400",
+badge:"Más vendido"
+},
+
+{
+id:4,
+name:"Lara Sweet For You EDT",
+cat:"perfumes-mujer",
+price:18.90,
+oldPrice:null,
+imgData:"https://via.placeholder.com/300x400",
+badge:"Nuevo"
 }
-function toast(msg){
-  var t=document.getElementById('toastEl');t.textContent=msg;t.classList.add('show');
-  setTimeout(function(){t.classList.remove('show');},3000);
+
+];
+
+if(!localStorage.getItem('soraya_v1')){
+localStorage.setItem('soraya_v1',JSON.stringify(DEFAULTS));
 }
-function updateBadge(){
-  document.getElementById('cartBadge').textContent = '0';
+
+let products=JSON.parse(localStorage.getItem('soraya_v1'));
+
+let cart=[];
+
+function renderProducts(){
+
+let html='';
+
+products.forEach(p=>{
+
+html+=`
+
+<div class="card">
+
+<div class="card-img">
+<img src="${p.imgData}">
+</div>
+
+<div class="card-body">
+
+<h3>${p.name}</h3>
+
+<div class="price">
+${p.price.toFixed(2)}€
+${p.oldPrice?`<span class="old">${p.oldPrice.toFixed(2)}€</span>`:''}
+</div>
+
+<button class="add" onclick="addCart(${p.id})">
+Añadir al carrito
+</button>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+document.getElementById('products').innerHTML=html;
+
 }
-updateBadge();
+
+function addCart(id){
+
+cart.push(id);
+
+document.getElementById('badge').innerText=cart.length;
+
+}
+
+renderProducts();
+
 </script>
+
 </body>
 </html>
