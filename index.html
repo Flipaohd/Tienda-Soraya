@@ -3,245 +3,274 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Widget Builder</title>
-
+<title>Soraya Perfumes y Cosméticos</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial;
+:root{--gold:#b8860b;--gold-light:#d4a843;--cream:#faf7f2;--dark:#1a1410;--mid:#3d3530;--rose:#c9a0a0;--rose-light:#f5ece8;--border:#e8ddd5;--white:#ffffff;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden;}
+.topbar{background:var(--dark);color:var(--gold-light);text-align:center;padding:8px 20px;font-size:12px;letter-spacing:2px;font-weight:500;text-transform:uppercase;}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:1000;box-shadow:0 2px 20px rgba(0,0,0,0.06);}
+.header-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:18px 30px;}
+.header-left{display:flex;align-items:center;gap:20px;}
+.header-right{display:flex;align-items:center;justify-content:flex-end;gap:18px;}
+.logo{text-align:center;cursor:pointer;user-select:none;-webkit-user-select:none;}
+.logo-main{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;letter-spacing:3px;color:var(--dark);text-transform:uppercase;line-height:1.1;}
+.logo-sub{font-size:10px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;font-weight:500;}
+.header-icon{cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:10px;letter-spacing:1px;color:var(--mid);text-decoration:none;transition:color 0.2s;text-transform:uppercase;font-weight:500;background:none;border:none;font-family:inherit;}
+.header-icon:hover{color:var(--gold);}
+.header-icon svg{width:20px;height:20px;}
+.cart-badge{background:var(--gold);color:white;border-radius:50%;width:18px;height:18px;font-size:10px;display:flex;align-items:center;justify-content:center;font-weight:600;margin-left:-8px;margin-top:-8px;}
+.cart-wrap{position:relative;display:flex;}
+nav{background:var(--dark);}
+.nav-inner{max-width:1400px;margin:0 auto;display:flex;justify-content:center;padding:0 30px;flex-wrap:wrap;}
+.nav-link{color:rgba(255,255,255,0.85);font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;padding:14px 18px;display:block;cursor:pointer;transition:color 0.2s;white-space:nowrap;}
+.nav-link:hover{color:var(--gold-light);}
+.page{display:none;}.page.active{display:block;}
+.hero{background:linear-gradient(135deg,var(--dark) 0%,#2d2015 50%,#1a0f0a 100%);min-height:450px;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;}
+.hero-content{position:relative;z-index:2;padding:40px 20px;}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,6vw,64px);font-weight:300;color:var(--white);line-height:1.2;margin-bottom:20px;letter-spacing:2px;}
+.hero-title em{font-style:italic;color:var(--gold-light);}
+.section{padding:40px 20px;max-width:1300px;margin:0 auto;}
+.section-header{text-align:center;margin-bottom:36px;}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:400;color:var(--dark);letter-spacing:1px;}
+.section-line{width:40px;height:1px;background:var(--gold);margin:12px auto 0;}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px;}
+.product-card{background:var(--white);border:1px solid var(--border);border-radius:8px;overflow:hidden;display:flex;flex-direction:column;justify-content:between;transition:transform 0.2s;}
+.product-card:hover{transform:translateY(-3px);}
+.product-img{height:240px;background:#fff;display:flex;align-items:center;justify-content:center;padding:12px;position:relative;}
+.product-img img{max-width:100%;max-height:100%;object-fit:contain;}
+.product-badge{position:absolute;top:10px;left:10px;background:var(--gold);color:#fff;font-size:10px;font-weight:600;padding:3px 8px;border-radius:3px;text-transform:uppercase;}
+.product-info{padding:14px;flex-grow:1;display:flex;flex-direction:column;justify-content:space-between;}
+.product-title{font-size:14px;font-weight:500;margin-bottom:6px;color:var(--dark);}
+.product-price-row{display:flex;align-items:baseline;gap:8px;margin-top:4px;}
+.price{font-size:18px;font-weight:600;color:var(--gold);}
+.price-old{font-size:13px;color:#aaa;text-decoration:line-through;}
+.btn-add{background:var(--dark);color:#white;border:none;width:100%;padding:10px;font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:600;cursor:pointer;margin-top:12px;border-radius:4px;transition:background 0.2s;}
+.btn-add:hover{background:var(--gold);}
+.cart-sidebar{position:fixed;top:0;right:-100%;width:380px;max-width:100vw;height:100vh;background:var(--white);z-index:9999;transition:right 0.3s;display:flex;flex-direction:column;box-shadow:-5px 0 25px rgba(0,0,0,0.15);}
+.cart-sidebar.open{right:0;}
+.cart-header{padding:20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+.cart-body{flex:1;overflow-y:auto;padding:20px;}
+.cart-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);align-items:center;}
+.cart-item-img{width:50px;height:60px;object-fit:contain;}
+.cart-footer{padding:20px;border-top:1px solid var(--border);background:#fafafa;}
+.btn-whatsapp{display:block;width:100%;background:#25D366;color:#fff;text-align:center;padding:14px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px;margin-top:10px;}
+.cart-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:9998;}
+.cart-overlay.open{display:block;}
+#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--dark);color:#white;padding:12px 24px;border-radius:30px;font-size:13px;z-index:10000;display:none;box-shadow:0 4px 15px rgba(0,0,0,0.2);}
+@media(max-width:768px){
+  .header-inner{grid-template-columns:1fr auto;padding:12px 16px;}
+  .header-left{display:none;}
+  .nav-inner{overflow-x:auto;justify-content:start;padding:0 10px;}
+  .hero{min-height:300px;}
 }
-
-body{
-background:#0f172a;
-padding:40px;
-color:white;
-}
-
-.container{
-max-width:1100px;
-margin:auto;
-}
-
-h1{
-font-size:42px;
-margin-bottom:30px;
-}
-
-.builder{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:30px;
-}
-
-.panel{
-background:#1e293b;
-padding:25px;
-border-radius:20px;
-}
-
-.input{
-margin-bottom:20px;
-}
-
-.input label{
-display:block;
-margin-bottom:8px;
-font-weight:bold;
-}
-
-.input input,
-.input textarea{
-width:100%;
-padding:14px;
-border:none;
-border-radius:12px;
-font-size:16px;
-}
-
-textarea{
-height:120px;
-resize:none;
-}
-
-button{
-width:100%;
-padding:16px;
-border:none;
-background:#3b82f6;
-color:white;
-font-size:17px;
-border-radius:14px;
-cursor:pointer;
-transition:.3s;
-font-weight:bold;
-}
-
-button:hover{
-transform:scale(1.02);
-}
-
-.preview{
-background:white;
-border-radius:20px;
-padding:30px;
-min-height:500px;
-}
-
-.code{
-margin-top:25px;
-background:#020617;
-padding:20px;
-border-radius:15px;
-overflow:auto;
-}
-
-code{
-color:#38bdf8;
-white-space:pre-wrap;
-font-size:13px;
-}
-
 </style>
 </head>
-
 <body>
 
-<div class="container">
+<div class="topbar">Soraya Perfumes y Cosméticos — Envios Disponibles</div>
 
-<h1>Generador de Widgets</h1>
+<header>
+  <div class="header-inner">
+    <div class="header-left">
+      <span>✨ Fragancias de Lujo</span>
+    </div>
+    <div class="logo" id="webLogo">
+      <div class="logo-main">Soraya</div>
+      <div class="logo-sub">Perfumes & Cosmética</div>
+    </div>
+    <div class="header-right">
+      <div class="cart-wrap" onclick="toggleCart(true)">
+        <button class="header-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+        </button>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </div>
+    </div>
+  </div>
+</header>
 
-<div class="builder">
+<nav>
+  <div class="nav-inner">
+    <span class="nav-link" onclick="filtrarCategoria('todos')">Todos</span>
+    <span class="nav-link" onclick="filtrarCategoria('perfumes-mujer')">Perfumes Mujer</span>
+    <span class="nav-link" onclick="filtrarCategoria('perfumes-hombre')">Perfumes Hombre</span>
+    <span class="nav-link" onclick="filtrarCategoria('cremas')">Cosmética</span>
+  </div>
+</nav>
 
-<div class="panel">
-
-<div class="input">
-<label>Título</label>
-<input type="text" id="title" placeholder="Oferta exclusiva">
+<div class="hero">
+  <div class="hero-content">
+    <h1 class="hero-title">Alta Perfumería & <em>Cosmética</em></h1>
+  </div>
 </div>
 
-<div class="input">
-<label>Descripción</label>
-<textarea id="description" placeholder="Compra ahora y consigue descuento"></textarea>
+<main class="section">
+  <div class="section-header">
+    <h2 class="section-title" id="catTitle">Nuestro Catálogo</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="products-grid" id="gridProductos"></div>
+</main>
+
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart(false)"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h3>Tu Cesta</h3>
+    <button onclick="toggleCart(false)" style="background:none;border:none;font-size:20px;cursor:pointer;">✕</button>
+  </div>
+  <div class="cart-body" id="cartBody"></div>
+  <div class="cart-footer">
+    <div style="display:flex;justify-content:space-between;font-weight:600;font-size:16px;">
+      <span>Total:</span>
+      <span id="cartTotal">0.00€</span>
+    </div>
+    <a href="#" class="btn-whatsapp" id="btnEnviarPedido" target="_blank">💬 Confirmar por WhatsApp</a>
+  </div>
 </div>
 
-<div class="input">
-<label>Texto botón</label>
-<input type="text" id="buttonText" placeholder="Comprar">
-</div>
-
-<div class="input">
-<label>Enlace botón</label>
-<input type="text" id="buttonLink" placeholder="https://">
-</div>
-
-<div class="input">
-<label>Color widget</label>
-<input type="color" id="color" value="#3b82f6">
-</div>
-
-<button onclick="generateWidget()">
-GENERAR WIDGET
-</button>
-
-</div>
-
-<div class="preview">
-
-<div id="widgetPreview"></div>
-
-<div class="code">
-<code id="embedCode"></code>
-</div>
-
-</div>
-
-</div>
-
-</div>
+<div id="toast"></div>
 
 <script>
+// ── CONFIGURACIÓN DE CONTACTO ──
+var settings = { tel: "34600000000" };
 
-function generateWidget(){
+// ── CONFIGURACIÓN DE CONTRASEÑA DE ADMINISTRADOR ──
+var ADMIN_PASS = "admin123"; 
 
-const title = document.getElementById("title").value;
-const description = document.getElementById("description").value;
-const buttonText = document.getElementById("buttonText").value;
-const buttonLink = document.getElementById("buttonLink").value;
-const color = document.getElementById("color").value;
+// ── BASE DE DATOS LOCAL INCRUSTADA ──
+var products = [];
 
-const widget = `
-<div style="
-background:${color};
-padding:30px;
-border-radius:20px;
-max-width:400px;
-margin:auto;
-text-align:center;
-font-family:Arial;
-box-shadow:0 10px 30px rgba(0,0,0,.2);
-">
+// ── ACCESO INVISIBLE CON TRIPLE TOQUE AL LOGO ──
+var clicksLogo = 0;
+document.getElementById('webLogo').addEventListener('click', function() {
+  clicksLogo++;
+  if(clicksLogo === 3) {
+    clicksLogo = 0;
+    var pass = prompt("Introduce la contraseña de Administrador:");
+    if(pass === ADMIN_PASS) {
+      window.location.href = 'Gestor.html';
+    } else if(pass !== null) {
+      alert("Contraseña incorrecta");
+    }
+  }
+  setTimeout(function() { clicksLogo = 0; }, 1500);
+});
 
-<h2 style="
-font-size:32px;
-margin-bottom:15px;
-color:white;
-">
-${title}
-</h2>
+// ── LÓGICA DE LA TIENDA ──
+var cart = [];
+var catActual = 'todos';
 
-<p style="
-font-size:18px;
-margin-bottom:25px;
-color:white;
-line-height:1.5;
-">
-${description}
-</p>
+function renderGrid() {
+  var grid = document.getElementById('gridProductos');
+  grid.innerHTML = '';
+  var filtrados = products.filter(p => catActual === 'todos' || p.category === catActual);
+  
+  if(filtrados.length === 0) {
+    grid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:40px; color:#999;">No hay productos en esta categoría.</div>';
+    return;
+  }
 
-<a href="${buttonLink}" target="_blank"
-style="
-display:inline-block;
-padding:15px 28px;
-background:white;
-color:black;
-text-decoration:none;
-border-radius:12px;
-font-weight:bold;
-font-size:16px;
-">
-${buttonText}
-</a>
-
-</div>
-`;
-
-document.getElementById("widgetPreview").innerHTML = widget;
-
-const embed = `
-<!-- WIDGET START -->
-
-<div id="custom-widget"></div>
-
-<script>
-document.getElementById("custom-widget").innerHTML = \`
-
-${widget.replace(/`/g, '\\`')}
-
-\`;
-<\/script>
-
-<!-- WIDGET END -->
-`;
-
-document.getElementById("embedCode").textContent = embed;
-
+  filtrados.forEach(function(p) {
+    var card = document.createElement('div');
+    card.className = 'product-card';
+    var badgeHtml = p.badge ? `<span class="product-badge">${p.badge}</span>` : '';
+    var antesHtml = p.oldPrice ? `<span class="price-old">${p.oldPrice}€</span>` : '';
+    
+    card.innerHTML = `
+      <div class="product-img">
+        ${badgeHtml}
+        <img src="${p.image || 'https://via.placeholder.com/200'}" alt="${p.name}">
+      </div>
+      <div class="product-info">
+        <div>
+          <div class="product-title">${p.name}</div>
+          <div style="font-size:12px; color:#888; margin-bottom:6px;">${p.sizes || ''}</div>
+        </div>
+        <div>
+          <div class="product-price-row">
+            <span class="price">${p.price}€</span>
+            ${antesHtml}
+          </div>
+          <button class="btn-add" onclick="addToCart('${p.id}')">Añadir</button>
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
 }
 
-</script>
+function filtrarCategoria(cat) {
+  catActual = cat;
+  document.getElementById('catTitle').textContent = cat === 'todos' ? 'Nuestro Catálogo' : cat.replace('-',' ').toUpperCase();
+  renderGrid();
+}
 
+function addToCart(id) {
+  var p = products.find(prod => prod.id === id);
+  if(!p) return;
+  var item = cart.find(c => c.id === id);
+  if(item) { item.qty++; } else { cart.push({ ...p, qty: 1 }); }
+  updateCart();
+  showToast("✓ Producto añadido");
+}
+
+function updateCart() {
+  var body = document.getElementById('cartBody');
+  body.innerHTML = '';
+  var total = 0;
+  var totalItems = 0;
+
+  cart.forEach(function(item) {
+    total += item.price * item.qty;
+    totalItems += item.qty;
+    var div = document.createElement('div');
+    div.className = 'cart-item';
+    div.innerHTML = `
+      <img src="${item.image || 'https://via.placeholder.com/50'}" class="cart-item-img">
+      <div style="flex:1;">
+        <div style="font-size:13px; font-weight:500;">${item.name}</div>
+        <div style="color:var(--gold); font-size:14px;">${item.price}€ x ${item.qty}</div>
+      </div>
+      <button onclick="changeQty('${item.id}', -1)" style="padding:4px 8px;">-</button>
+      <button onclick="changeQty('${item.id}', 1)" style="padding:4px 8px;">+</button>
+    `;
+    body.appendChild(div);
+  });
+
+  document.getElementById('cartBadge').textContent = totalItems;
+  document.getElementById('cartTotal').textContent = total.toFixed(2) + "€";
+  
+  // Enlace WhatsApp
+  var texto = "Hola Soraya, me gustaría realizar el siguiente pedido:\n\n";
+  cart.forEach(item => { texto += `- ${item.name} (x${item.qty}) - ${item.price}€\n`; });
+  texto += `\n*Total: ${total.toFixed(2)}€*`;
+  document.getElementById('btnEnviarPedido').href = `https://wa.me/${settings.tel}?text=${encodeURIComponent(texto)}`;
+}
+
+function changeQty(id, val) {
+  var item = cart.find(c => c.id === id);
+  if(!item) return;
+  item.qty += val;
+  if(item.qty <= 0) cart = cart.filter(c => c.id !== id);
+  updateCart();
+}
+
+function toggleCart(open) {
+  document.getElementById('cartSidebar').classList.toggle('open', open);
+  document.getElementById('cartOverlay').classList.toggle('open', open);
+}
+
+function showToast(msg) {
+  var t = document.getElementById('toast');
+  t.textContent = msg; t.style.display = 'block';
+  setTimeout(() => t.style.display = 'none', 2000);
+}
+
+// Inicialización automática
+renderGrid();
+// ── FIN_CODIGO_AUTOMATICO ──
+</script>
 </body>
 </html>
