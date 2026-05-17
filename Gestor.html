@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soraya — Panel de Control Profesional</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#b8860b;--gold-light:#d4a843;--dark:#1a1410;--mid:#2a221b;--border:#e0d8d0;--cream:#faf7f2;--red:#d93838;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Jost',sans-serif;background:#fcfbfa;color:var(--dark);padding-bottom:6px;}
+
+/* HEADER */
+.hdr{background:var(--dark);color:#fff;padding:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;border-bottom:3px solid var(--gold);}
+.hdr-title{font-family:'Cormorant Garamond',serif;font-size:26px;letter-spacing:1px;}
+.hdr-title em{color:var(--gold-light);font-style:italic;}
+.hdr-badge{background:rgba(184,134,11,0.15);color:var(--gold-light);padding:6px 16px;border-radius:30px;font-size:12px;font-weight:600;border:1px solid rgba(184,134,11,0.3);}
+
+/* LAYOUT RESPONSIVO */
+.wrap{max-width:1300px;margin:0 auto;padding:24px 16px;}
+.grid{display:grid;grid-template-columns:450px 1fr;gap:30px;}
+
+@media(max-width:900px){
+  .grid{grid-template-columns:1fr;}
+}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px;}
+.stat{background:#fff;border:1px solid var(--border);border-radius:8px;padding:16px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.02);}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--gold);font-weight:500;}
+.stat-l{font-size:11px;color:#888;text-transform:uppercase;letter-spacing:1.5px;margin-top:4px;}
+
+/* PANELS */
+.panel{background:#fff;border:1px solid var(--border);border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.03);overflow:hidden;margin-bottom:24px;}
+.panel-head{background:var(--dark);color:#fff;padding:16px 20px;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,0.05);}
+.panel-body{padding:20px;}
+
+/* FORMS */
+.fg{margin-bottom:16px;}
+.fg label{display:block;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:#666;margin-bottom:6px;}
+.fg input, .fg select, .fg textarea{width:100%;padding:12px;border:1px solid var(--border);border-radius:6px;font-family:'Jost',sans-serif;font-size:14px;outline:none;transition:border-color 0.2s;}
+.fg input:focus, .fg select:focus, .fg textarea:focus{border-color:var(--gold);}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+
+/* IMAGE UPLOAD UPLOADER */
+.img-upload{border:2px dashed var(--border);border-radius:8px;padding:24px;text-align:center;cursor:pointer;background:#faf9f7;position:relative;}
+.img-upload:hover{border-color:var(--gold);}
+.img-prev{max-width:100%;height:150px;object-fit:contain;display:none;margin:0 auto;}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;border:none;border-radius:6px;cursor:pointer;font-family:'Jost',sans-serif;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;transition:all 0.2s;width:100%;}
+.btn-gold{background:var(--gold);color:#fff;}
+.btn-gold:hover{background:var(--gold-light);}
+.btn-dark{background:var(--dark);color:#white;border:1px solid var(--gold);}
+.btn-red{background:var(--red);color:#fff;}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--dark);}
+
+/* ITEMS LIST */
+.prod-item{display:flex;align-items:center;gap:16px;padding:14px;border-bottom:1px solid var(--border);background:#fff;}
+.prod-item:last-child{border-bottom:none;}
+.prod-img-box{width:60px;height:70px;background:#fcfcfc;border-radius:4px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid var(--border);flex-shrink:0;}
+.prod-img-box img{max-width:100%;max-height:100%;object-fit:contain;}
+
+/* TOAST */
+.toast{position:fixed;bottom:20px;right:20px;background:var(--dark);color:#white;padding:14px 24px;border-radius:6px;font-size:13px;box-shadow:0 4px 20px rgba(0,0,0,0.3);z-index:9999;display:none;border-left:4px solid var(--gold);}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div>
+    <div class="hdr-title">Soraya <em>Studio</em></div>
+    <div class="hdr-sub" style="font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--gold-light);">Herramienta de Administración Profesional</div>
+  </div>
+  <div class="hdr-badge" id="liveCounter">0 Productos Activos</div>
+</div>
+
+<div class="wrap">
+  <div class="stats">
+    <div class="stat"><div class="stat-n" id="stTotal">0</div><div class="stat-l">Catálogo Total</div></div>
+    <div class="stat"><div class="stat-n" id="stPrecios">0.00€</div><div class="stat-l">Promedio Precio</div></div>
+    <div class="stat"><div class="stat-n" id="stDestacados">0</div><div class="stat-l">Ofertas/Novedades</div></div>
+  </div>
+
+  <div class="grid">
+    <div>
+      <div class="panel">
+        <div class="panel-head">✨ Añadir / Editar Producto</div>
+        <div class="panel-body">
+          <div class="fg">
+            <label>Imagen del Producto</label>
+            <div class="img-upload" onclick="document.getElementById('fileInput').click()">
+              <img id="viewPrev" class="img-prev">
+              <div id="uploadPrompt">
+                <span style="font-size:32px;">📸</span>
+                <p style="font-size:13px; color:#888; margin-top:6px;">Subir o cambiar foto</p>
+              </div>
+              <input type="file" id="fileInput" accept="image/*" style="display:none;" onchange="procesarImagen(this)">
+            </div>
+          </div>
+
+          <div class="fg">
+            <label>Nombre Comercial *</label>
+            <input type="text" id="pName" placeholder="Ej: Yara Lattafa EDP 100ml">
+          </div>
+
+          <div class="fg-row">
+            <div class="fg"><label>Precio Venta (€) *</label><input type="number" id="pPrice" placeholder="29.90" step="0.01"></div>
+            <div class="fg"><label>Precio Anterior (€)</label><input type="number" id="pOldPrice" placeholder="39.90" step="0.01"></div>
+          </div>
+
+          <div class="fg-row">
+            <div class="fg">
+              <label>Categoría</label>
+              <select id="pCategory">
+                <option value="perfumes-mujer">Perfumes Mujer</option>
+                <option value="perfumes-hombre">Perfumes Hombre</option>
+                <option value="cremas">Cosmética & Cremas</option>
+              </select>
+            </div>
+            <div class="fg"><label>Volumen / Talla</label><input type="text" id="pSizes" placeholder="100 ml, 50 ml"></div>
+          </div>
+
+          <div class="fg">
+            <label>Etiqueta Especial</label>
+            <select id="pBadge">
+              <option value="">Ninguna</option>
+              <option value="Nuevo">Nuevo</option>
+              <option value="Oferta">Oferta</option>
+              <option value="Top Ventas">Top Ventas</option>
+            </select>
+          </div>
+
+          <input type="hidden" id="pEditId" value="">
+          <button class="btn btn-gold" onclick="addProducto()" style="margin-bottom:10px;">✓ Guardar en Catálogo</button>
+          <button class="btn btn-outline" id="btnCancelEdit" onclick="clearForm()" style="display:none;">✕ Cancelar Edición</button>
+        </div>
+      </div>
+
+      <div class="panel" style="background:var(--dark); color:#white; border:1px solid var(--gold);">
+        <div class="panel-body" style="text-align:center; padding:24px;">
+          <h3 style="font-family:'Cormorant Garamond',serif; font-size:22px; color:var(--gold-light); margin-bottom:8px;">Compilar & Sincronizar</h3>
+          <p style="font-size:13px; color:#aaa; margin-bottom:20px; line-height:1.6;">Este botón inyectará todos tus productos directamente dentro del código de tu web pública sin usar bases de datos externas.</p>
+          <button class="btn btn-gold" onclick="compilarWeb()" style="font-size:14px; padding:16px;">📥 Descargar index.html Actualizado</button>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="panel">
+        <div class="panel-head">📦 Productos en Almacén Local</div>
+        <div class="panel-body" id="listaContenedor" style="padding:0;">
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="msgToast"></div>
+
+<script>
+var localProducts = [];
+var currentImageBase64 = "";
+
+window.onload = function() {
+  alert("Por favor, selecciona primero tu archivo 'index.html' actual para poder cargar los productos existentes.");
+  importarDesdeWeb();
+};
+
+function importarDesdeWeb() {
+  var input = document.createElement('input');
+  input.type = 'file';
+  input.accept = '.html';
+  input.onchange = function(e) {
+    var file = e.target.files[0];
+    var reader = new FileReader();
+    reader.onload = function(evt) {
+      var htmlContent = evt.target.result;
+      var match = htmlContent.match(/var products\s*=\s*(\[[\s\S]*?\]);/);
+      if(match && match[1]) {
+        try {
+          localProducts = JSON.parse(match[1]);
+          mostrarToast("✓ Productos cargados correctamente");
+          renderManagerList();
+        } catch(err) {
+          alert("No se pudo procesar el formato de productos del archivo.");
+        }
+      } else {
+        alert("No se encontró ninguna lista de productos previa. Empezando catálogo limpio.");
+      }
+    };
+    reader.readAsText(file);
+  };
+  input.click();
+}
+
+function procesarImagen(input) {
+  if (input.files && input.files[0]) {
+    var r = new FileReader();
+    r.onload = function(e) {
+      currentImageBase64 = e.target.result;
+      document.getElementById('viewPrev').src = currentImageBase64;
+      document.getElementById('viewPrev').style.display = 'block';
+      document.getElementById('uploadPrompt').style.display = 'none';
+    };
+    r.readAsDataURL(input.files[0]);
+  }
+}
+
+function addProducto() {
+  var name = document.getElementById('pName').value.trim();
+  var price = parseFloat(document.getElementById('pPrice').value);
+  var oldPrice = parseFloat(document.getElementById('pOldPrice').value) || "";
+  var category = document.getElementById('pCategory').value;
+  var sizes = document.getElementById('pSizes').value.trim();
+  var badge = document.getElementById('pBadge').value;
+  var editId = document.getElementById('pEditId').value;
+
+  if(!name || isNaN(price)) {
+    alert("El nombre y el precio de venta son campos obligatorios.");
+    return;
+  }
+
+  if(editId) {
+    // Modo Edición
+    var index = localProducts.findIndex(p => p.id === editId);
+    if(index !== -1) {
+      localProducts[index].name = name;
+      localProducts[index].price = price;
+      localProducts[index].oldPrice = oldPrice;
+      localProducts[index].category = category;
+      localProducts[index].sizes = sizes;
+      localProducts[index].badge = badge;
+      if(currentImageBase64) localProducts[index].image = currentImageBase64;
+    }
+    mostrarToast("✓ Producto actualizado");
+  } else {
+    // Modo Nuevo Producto
+    var nuevo = {
+      id: "prod_" + Date.now(),
+      name: name,
+      price: price,
+      oldPrice: oldPrice,
+      category: category,
+      sizes: sizes,
+      badge: badge,
+      image: currentImageBase64 || "https://via.placeholder.com/200"
+    };
+    localProducts.push(nuevo);
+    mostrarToast("✓ Producto añadido");
+  }
+
+  clearForm();
+  renderManagerList();
+}
+
+function editProducto(id) {
+  var p = localProducts.find(prod => prod.id === id);
+  if(!p) return;
+
+  document.getElementById('pName').value = p.name;
+  document.getElementById('pPrice').value = p.price;
+  document.getElementById('pOldPrice').value = p.oldPrice;
+  document.getElementById('pCategory').value = p.category;
+  document.getElementById('pSizes').value = p.sizes;
+  document.getElementById('pBadge').value = p.badge;
+  document.getElementById('pEditId').value = p.id;
+
+  if(p.image) {
+    document.getElementById('viewPrev').src = p.image;
+    document.getElementById('viewPrev').style.display = 'block';
+    document.getElementById('uploadPrompt').style.display = 'none';
+    currentImageBase64 = p.image;
+  }
+
+  document.getElementById('btnCancelEdit').style.display = 'inline-flex';
+}
+
+function deleteProducto(id) {
+  if(confirm("¿Estás seguro de eliminar este producto?")) {
+    localProducts = localProducts.filter(p => p.id !== id);
+    renderManagerList();
+    mostrarToast("✕ Producto eliminado");
+  }
+}
+
+function clearForm() {
+  document.getElementById('pName').value = "";
+  document.getElementById('pPrice').value = "";
+  document.getElementById('pOldPrice').value = "";
+  document.getElementById('pSizes').value = "";
+  document.getElementById('pBadge').value = "";
+  document.getElementById('pEditId').value = "";
+  document.getElementById('viewPrev').style.display = 'none';
+  document.getElementById('uploadPrompt').style.display = 'block';
+  document.getElementById('btnCancelEdit').style.display = 'none';
+  currentImageBase64 = "";
+}
+
+function renderManagerList() {
+  var container = document.getElementById('listaContenedor');
+  container.innerHTML = "";
+  
+  if(localProducts.length === 0) {
+    container.innerHTML = `<div style="padding:40px; text-align:center; color:#999;">El almacén está vacío. Agrega tu primer producto.</div>`;
+    actualizarStats();
+    return;
+  }
+
+  localProducts.forEach(function(p) {
+    var row = document.createElement('div');
+    row.className = 'prod-item';
+    row.innerHTML = `
+      <div class="prod-img-box"><img src="${p.image}"></div>
+      <div style="flex:1;">
+        <div style="font-weight:600; font-size:14px;">${p.name}</div>
+        <div style="font-size:12px; color:#cabaa4; font-weight:500;">${p.category.toUpperCase()} | ${p.price}€</div>
+      </div>
+      <div style="display:flex; gap:6px;">
+        <button class="btn btn-outline" style="padding:8px 12px; width:auto;" onclick="editProducto('${p.id}')">✏️</button>
+        <button class="btn btn-red" style="padding:8px 12px; width:auto;" onclick="deleteProducto('${p.id}')">🗑️</button>
+      </div>
+    `;
+    container.appendChild(row);
+  });
+
+  actualizarStats();
+}
+
+function actualizarStats() {
+  document.getElementById('liveCounter').textContent = localProducts.length + " Productos Activos";
+  document.getElementById('stTotal').textContent = localProducts.length;
+  
+  var totalPrecios = 0;
+  var destacados = 0;
+  localProducts.forEach(p => {
+    totalPrecios += p.price;
+    if(p.badge) destacados++;
+  });
+  
+  var promedio = localProducts.length ? (totalPrecios / localProducts.length).toFixed(2) : "0.00";
+  document.getElementById('stPrecios').textContent = promedio + "€";
+  document.getElementById('stDestacados').textContent = destacados;
+}
+
+function compilarWeb() {
+  // Primero solicitamos cargar la plantilla original o la web index.html actual para inyectarle los nuevos datos
+  alert("Selecciona tu archivo 'index.html' para inyectar los cambios y descargar la nueva versión compilada.");
+  
+  var input = document.createElement('input');
+  input.type = 'file';
+  input.accept = '.html';
+  input.onchange = function(e) {
+    var file = e.target.files[0];
+    var reader = new FileReader();
+    reader.onload = function(evt) {
+      var originalHtml = evt.target.result;
+      
+      var productosInyectados = "var products = " + JSON.stringify(localProducts, null, 2) + ";";
+      
+      // Reemplazo limpio mediante regex
+      var htmlModificado = originalHtml.replace(/var products\s*=\s*\[[\s\S]*?\];/g, productosInyectados);
+      
+      // Forzar la descarga del archivo index.html completo
+      var blob = new Blob([htmlModificado], {type: 'text/html;charset=utf-8'});
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = 'index.html';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      mostrarToast("✓ ¡index.html generado con éxito!");
+    };
+    reader.readAsText(file);
+  };
+  input.click();
+}
+
+function mostrarToast(msg) {
+  var t = document.getElementById('msgToast');
+  t.textContent = msg; t.style.display = 'block';
+  setTimeout(() => t.style.display = 'none', 3000);
+}
+</script>
+</body>
+</html>
