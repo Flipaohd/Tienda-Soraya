@@ -1,0 +1,774 @@
+<html class="dark" lang="es"><head></head><body class="bg-[#1a1c19] min-h-screen flex system-lock text-[#fafaf5]">```html
+
+
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Soraya - Panel de Control Maestro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400..900;1,400..900&amp;family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "inverse-surface": "#2f312e",
+                "secondary": "#735c00",
+                "on-surface": "#1a1c19",
+                "primary-fixed": "#e2e2e2",
+                "surface-container-highest": "#e3e3de",
+                "surface-container": "#eeeee9",
+                "on-tertiary-fixed": "#2f1314",
+                "surface-bright": "#fafaf5",
+                "inverse-on-surface": "#f1f1ec",
+                "on-secondary": "#ffffff",
+                "secondary-fixed": "#ffe088",
+                "tertiary": "#000000",
+                "on-background": "#1a1c19",
+                "on-primary-container": "#848484",
+                "error-container": "#ffdad6",
+                "on-secondary-fixed-variant": "#574500",
+                "secondary-fixed-dim": "#e9c349",
+                "surface-dim": "#dadad5",
+                "outline": "#7e7576",
+                "surface-tint": "#5e5e5e",
+                "surface-variant": "#e3e3de",
+                "secondary-container": "#fed65b",
+                "primary-fixed-dim": "#c6c6c6",
+                "primary-container": "#1b1b1b",
+                "surface-container-high": "#e8e8e3",
+                "tertiary-container": "#2f1314",
+                "on-primary-fixed-variant": "#474747",
+                "on-primary-fixed": "#1b1b1b",
+                "on-primary": "#ffffff",
+                "surface-container-lowest": "#ffffff",
+                "tertiary-fixed": "#ffdad9",
+                "surface-container-low": "#f4f4ef",
+                "surface": "#fafaf5",
+                "on-surface-variant": "#4c4546",
+                "on-error-container": "#93000a",
+                "inverse-primary": "#c6c6c6",
+                "on-tertiary-container": "#a47979",
+                "on-secondary-fixed": "#241a00",
+                "error": "#ba1a1a",
+                "on-error": "#ffffff",
+                "on-tertiary-fixed-variant": "#613d3e",
+                "on-tertiary": "#ffffff",
+                "on-secondary-container": "#745c00",
+                "background": "#fafaf5",
+                "primary": "#000000",
+                "tertiary-fixed-dim": "#ecbaba",
+                "outline-variant": "#cfc4c5"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+        },
+        "spacing": {
+                "margin-mobile": "20px",
+                "margin-desktop": "64px",
+                "gutter": "24px",
+                "section-gap": "120px",
+                "container-max": "1280px",
+                "unit": "8px"
+        },
+        "fontFamily": {
+                "title-md": [
+                        "Bodoni Moda"
+                ],
+                "headline-lg": [
+                        "Bodoni Moda"
+                ],
+                "body-lg": [
+                        "Hanken Grotesk"
+                ],
+                "headline-lg-mobile": [
+                        "Bodoni Moda"
+                ],
+                "display-lg": [
+                        "Bodoni Moda"
+                ],
+                "label-caps": [
+                        "Hanken Grotesk"
+                ],
+                "body-sm": [
+                        "Hanken Grotesk"
+                ]
+        },
+        "fontSize": {
+                "title-md": [
+                        "24px",
+                        {
+                                "lineHeight": "1.4",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "1.2",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "32px",
+                        {
+                                "lineHeight": "1.2",
+                                "fontWeight": "600"
+                        }
+                ],
+                "display-lg": [
+                        "64px",
+                        {
+                                "lineHeight": "1.1",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "label-caps": [
+                        "12px",
+                        {
+                                "lineHeight": "1",
+                                "letterSpacing": "0.15em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-sm": [
+                        "14px",
+                        {
+                                "lineHeight": "1.5",
+                                "fontWeight": "400"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        body {
+            font-family: 'Hanken Grotesk', sans-serif;
+            background-color: #1a1c19;
+            color: #fafaf5;
+            margin: 0;
+            padding: 0;
+        }
+        .editorial-shadow {
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .underline-input {
+            border: none;
+            border-bottom: 1px solid #4c4546;
+            background: transparent;
+            border-radius: 0;
+            color: #fafaf5;
+        }
+        .underline-input:focus {
+            outline: none;
+            border-bottom: 2px solid #e9c349;
+            box-shadow: none;
+        }
+        .primary-btn-editorial {
+            background-color: #e9c349;
+            color: #1a1c19;
+            border: 1px solid #e9c349;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .primary-btn-editorial:hover:not(:disabled) {
+            background-color: #1a1c19;
+            color: #e9c349;
+        }
+        .primary-btn-editorial:disabled {
+            background-color: #2f312e;
+            border-color: #4c4546;
+            color: #cfc4c5;
+            cursor: not-allowed;
+        }
+        .section-hidden {
+            display: none !important;
+        }
+        @media (max-width: 1024px) {
+            #sidebar {
+                position: fixed;
+                left: -100%;
+                top: 0;
+                transition: left 0.3s ease;
+                height: 100vh;
+                box-shadow: 10px 0 30px rgba(0,0,0,0.5);
+            }
+            #sidebar.active {
+                left: 0;
+            }
+        }
+        .system-lock {
+            overflow: hidden;
+            height: 100vh;
+        }
+        .gold-glow {
+            text-shadow: 0 0 10px rgba(233, 195, 73, 0.3);
+        }
+        .custom-file-upload {
+            border: 1px dashed #4c4546;
+            display: inline-block;
+            padding: 12px;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            border-radius: 0.25rem;
+            transition: all 0.2s;
+        }
+        .custom-file-upload:hover {
+            background-color: #2f312e;
+            border-color: #e9c349;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1c19;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4c4546;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #7e7576;
+        }
+    </style>
+<!-- Initial Login Overlay -->
+<div class="fixed inset-0 bg-[#1a1c19] z-[200] flex items-center justify-center transition-opacity duration-300" id="main-login-overlay">
+<div class="max-w-md w-full px-8 text-center">
+<div class="mb-6 inline-flex items-center gap-2 px-3 py-1 bg-[#2f312e] rounded-full border border-[#e9c349]/20">
+<span class="material-symbols-outlined text-[14px] text-[#e9c349]">shield_lock</span>
+<span class="font-label-caps text-[9px] tracking-[0.2em] text-[#e9c349] uppercase">Sistema de Seguridad Activo</span>
+</div>
+<h1 class="font-display-lg text-title-md mb-2 text-[#e9c349]">Soraya Admin</h1>
+<p class="font-label-caps text-outline-variant opacity-80 mb-10 tracking-widest uppercase">Panel de Control Maestro</p>
+<div class="space-y-6">
+<div class="relative">
+<input class="w-full bg-white text-black py-4 px-4 text-center text-xl tracking-[0.5em] placeholder:tracking-normal placeholder:text-outline-variant rounded" id="main-password-input" placeholder="CONTRASEÑA" type="password"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 opacity-50 hover:opacity-100 transition-opacity text-[#e9c349]" id="toggle-pw-visibility">
+<span class="material-symbols-outlined" id="pw-visibility-icon">visibility_off</span>
+</button>
+<p class="text-error font-label-caps text-[10px] mt-2 opacity-0 transition-all" id="login-error">CONTRASEÑA INCORRECTA</p>
+</div>
+<button class="primary-btn-editorial w-full py-4 font-label-caps tracking-[0.2em] text-[12px] rounded" id="main-login-btn">ACCEDER AL PANEL</button>
+<a class="block w-full py-4 text-center font-label-caps tracking-[0.2em] text-[12px] rounded border border-outline-variant/30 text-outline-variant hover:text-[#e9c349] hover:border-[#e9c349] transition-all" href="index.html">VOLVER A LA WEB</a>
+</div>
+<p class="mt-12 text-[10px] font-label-caps opacity-50 text-[#e9c349]">© 2024 SORAYA MODA Y PERFUMES</p>
+</div>
+</div>
+<!-- Main UI Wrapper -->
+<div class="flex w-full section-hidden h-screen" id="admin-main-wrapper">
+<!-- Sidebar Navigation -->
+<aside class="flex flex-col h-screen py-10 px-6 gap-6 bg-[#1a1c19] border-r border-outline-variant/30 w-72 shrink-0 fixed lg:relative z-50 overflow-y-auto transition-transform duration-300 -translate-x-full lg:translate-x-0" id="sidebar">
+<div class="flex justify-between items-start mb-10 px-2 lg:block">
+<div>
+<h1 class="font-display-lg text-[24px] text-[#e9c349] tracking-tight">Soraya</h1>
+<p class="font-label-caps text-[10px] text-[#e9c349] gold-glow tracking-widest uppercase">Boutique de Lujo</p>
+</div>
+<button class="lg:hidden p-2 text-[#e9c349]" id="mobile-sidebar-close">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<nav class="flex flex-col gap-2 flex-grow">
+<a class="nav-link flex items-center gap-3 py-3 px-4 rounded-lg font-bold bg-[#e9c349]/20 text-[#e9c349] translate-x-1 transition-transform border border-[#e9c349]/30" href="#" id="nav-inventory">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-label-caps text-label-caps">Inventario Maestro</span>
+</a>
+<a class="nav-link flex items-center gap-3 py-3 px-4 rounded-lg text-outline-variant hover:bg-[#2f312e] transition-all hover:text-[#e9c349]" href="#" id="nav-export">
+<span class="material-symbols-outlined">code_blocks</span>
+<span class="font-label-caps text-label-caps">Generador de Código</span>
+</a>
+<div class="mt-auto border-t border-outline-variant/30 pt-6 space-y-2">
+<p class="font-label-caps text-[10px] text-outline-variant/70 uppercase tracking-[0.2em] px-4 mb-2">Navegación Externa</p>
+<a class="flex items-center gap-3 py-3 px-4 rounded-lg text-outline-variant hover:bg-[#2f312e] transition-all hover:text-[#e9c349]" href="index.html">
+<span class="material-symbols-outlined text-[20px]">home</span>
+<span class="font-label-caps text-[11px]">Volver a la Tienda (Inicio)</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 rounded-lg text-outline-variant hover:bg-[#2f312e] transition-all hover:text-[#e9c349]" href="catalogo.html">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+<span class="font-label-caps text-[11px]">Volver al Catálogo</span>
+</a>
+<button class="flex items-center gap-3 py-3 px-4 rounded-lg text-outline-variant hover:bg-error/20 hover:text-error transition-all cursor-pointer w-full text-left" id="logout-btn">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+<span class="font-label-caps text-[11px]">Cerrar Sesión</span>
+</button>
+</div>
+</nav>
+</aside>
+<div class="fixed inset-0 bg-black/80 z-40 hidden" id="sidebar-overlay"></div>
+<main class="flex-1 flex flex-col min-w-0 bg-[#1a1c19] overflow-hidden relative">
+<!-- Header -->
+<header class="bg-[#1a1c19]/90 backdrop-blur-md px-4 md:px-margin-desktop h-20 flex shrink-0 justify-between items-center border-b border-outline-variant/30 z-30">
+<div class="flex items-center gap-4">
+<button class="lg:hidden p-2 text-[#e9c349]" id="mobile-sidebar-toggle">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h2 class="font-headline-lg text-[20px] md:text-title-md text-[#e9c349]" id="page-title">Inventario Maestro</h2>
+</div>
+<div class="flex items-center gap-2 md:gap-6">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-0 top-1/2 -translate-y-1/2 text-[#e9c349]/50">search</span>
+<input class="w-full bg-white text-black py-2 pl-8 pr-3 font-label-caps text-[11px] w-48 md:w-72 placeholder:text-outline-variant rounded" id="search-input" placeholder="BUSCAR PRODUCTO..." type="text"/>
+</div>
+<button class="primary-btn-editorial px-4 md:px-8 py-3 font-label-caps text-[10px] md:text-[11px] flex items-center gap-2 tracking-widest whitespace-nowrap" id="open-add-modal">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span class="hidden xs:inline uppercase">Añadir Producto</span>
+</button>
+</div>
+</header>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto p-4 md:p-margin-desktop space-y-gutter pb-24">
+<!-- Inventory Section -->
+<div class="content-section" id="section-inventory">
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-gutter mb-10">
+<div class="bg-[#2f312e] p-6 md:p-8 rounded-lg editorial-shadow border border-outline-variant/30">
+<p class="font-label-caps text-[11px] text-outline-variant tracking-widest uppercase">Total Productos</p>
+<h3 class="font-display-lg text-title-md mt-2 text-[#e9c349]" id="stat-total-products">0</h3>
+</div>
+<div class="bg-[#2f312e] p-6 md:p-8 rounded-lg editorial-shadow border border-outline-variant/30">
+<p class="font-label-caps text-[11px] text-outline-variant tracking-widest uppercase">Stock Bajo (≤5)</p>
+<h3 class="font-display-lg text-title-md mt-2 text-error" id="stat-low-stock">0</h3>
+</div>
+<div class="bg-[#2f312e] p-6 md:p-8 rounded-lg editorial-shadow border border-outline-variant/30">
+<p class="font-label-caps text-[11px] text-outline-variant tracking-widest uppercase">Valor del Inventario</p>
+<h3 class="font-display-lg text-title-md mt-2 text-[#e9c349]" id="stat-total-value">0.00 €</h3>
+</div>
+</div>
+<div class="bg-[#2f312e] rounded-lg editorial-shadow border border-outline-variant/30 overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse min-w-[850px]">
+<thead>
+<tr class="bg-[#1a1c19] uppercase tracking-widest">
+<th class="px-6 py-4 font-label-caps text-[10px] text-[#e9c349] border-b border-outline-variant/30 w-24">Imagen</th>
+<th class="px-6 py-4 font-label-caps text-[10px] text-[#e9c349] border-b border-outline-variant/30">Producto</th>
+<th class="px-6 py-4 font-label-caps text-[10px] text-[#e9c349] border-b border-outline-variant/30">Categoría</th>
+<th class="px-6 py-4 font-label-caps text-[10px] text-[#e9c349] border-b border-outline-variant/30">Precio</th>
+<th class="px-6 py-4 font-label-caps text-[10px] text-[#e9c349] border-b border-outline-variant/30">Stock</th>
+<th class="px-6 py-4 font-label-caps text-[10px] text-[#e9c349] border-b border-outline-variant/30 text-right">Acciones</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30" id="inventory-tbody">
+<!-- Populated via JS -->
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Export Section -->
+<div class="content-section section-hidden" id="section-export">
+<div class="max-w-5xl mx-auto space-y-12">
+<div class="text-center">
+<span class="material-symbols-outlined text-5xl text-[#e9c349] mb-4 gold-glow">code_blocks</span>
+<h3 class="font-headline-lg text-[32px] mb-4 text-[#e9c349]">Generador de Código Maestro</h3>
+<p class="text-outline-variant max-w-2xl mx-auto font-body-lg">Sincroniza los cambios del inventario con las páginas públicas. Haz clic para generar el código actualizado que debes integrar en tu tienda.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-8">
+<button class="primary-btn-editorial py-6 text-center rounded-lg flex flex-col items-center justify-center gap-3 text-xl tracking-widest hover:scale-[1.02] transition-transform" onclick="generateAndShowCode('index')">
+<span class="material-symbols-outlined text-3xl">home</span>
+                                GENERAR HOME (INDEX)
+                            </button>
+<button class="primary-btn-editorial py-6 text-center rounded-lg flex flex-col items-center justify-center gap-3 text-xl tracking-widest hover:scale-[1.02] transition-transform" onclick="generateAndShowCode('catalog')">
+<span class="material-symbols-outlined text-3xl">shopping_bag</span>
+                                GENERAR CATÁLOGO (CATALOGO)
+                            </button>
+</div>
+<div class="hidden" id="code-output-container">
+<div class="bg-[#2f312e] rounded-lg editorial-shadow border border-outline-variant/30 overflow-hidden flex flex-col">
+<div class="p-4 bg-[#1a1c19] border-b border-outline-variant/30 flex flex-wrap gap-4 justify-between items-center">
+<h4 class="font-label-caps text-[14px] tracking-widest font-bold uppercase text-[#e9c349]" id="code-output-title">Código Generado</h4>
+<button class="primary-btn-editorial px-4 py-2 text-[10px] font-label-caps tracking-widest uppercase flex items-center gap-2" id="copy-code-btn" onclick="copyCodeOutput(this)">
+<span class="material-symbols-outlined text-[16px]">content_copy</span> COPIAR CÓDIGO
+                                    </button>
+</div>
+<textarea class="w-full h-[500px] p-6 font-mono text-[12px] bg-[#0d0c0b] text-[#e9c349] border-none focus:ring-0 resize-none shadow-inner" id="code-output-area" readonly=""></textarea>
+</div>
+</div>
+</div>
+</div>
+<!-- Global Footer Status -->
+<footer class="bg-[#2f312e]/90 backdrop-blur-sm py-3 px-8 flex justify-between items-center text-[10px] font-label-caps text-outline-variant border-t border-outline-variant/30 z-40 uppercase shrink-0">
+<p class="text-[#e9c349]">© 2024 SORAYA MODA Y PERFUMES. PANEL MAESTRO</p>
+<div class="flex gap-6">
+<span class="hidden sm:flex items-center gap-2"><span class="w-2 h-2 bg-[#e9c349] rounded-full animate-pulse shadow-[0_0_5px_rgba(233,195,73,0.8)]"></span> CONEXIÓN SEGURA</span>
+<span class="text-[#e9c349] font-bold">ADMIN: SORAYA</span>
+</div>
+</footer>
+</div></main>
+</div>
+<!-- Product Modal (Add/Edit) -->
+<div class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[150] hidden items-center justify-center p-4 overflow-y-auto" id="product-modal">
+<div class="bg-[#1a1c19] w-full max-w-2xl rounded-lg editorial-shadow border border-[#e9c349]/40 overflow-hidden my-auto shadow-[0_0_30px_rgba(233,195,73,0.15)]">
+<div class="p-6 border-b border-outline-variant/30 flex justify-between items-center bg-[#2f312e]">
+<h4 class="font-title-md text-[#e9c349]" id="product-modal-title">Detalles del Producto</h4>
+<button class="p-2 hover:bg-[#4c4546] text-[#e9c349] rounded-full transition-colors" id="close-product-modal">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<form class="p-8 space-y-6" id="product-form">
+<input id="edit-index" type="hidden" value="-1"/>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-6">
+<div>
+<label class="font-label-caps text-[10px] text-[#e9c349] block mb-2 uppercase">Nombre del Producto</label>
+<input class="w-full bg-white text-black py-2 px-3 rounded font-body-lg" id="prod-name" placeholder="Ej: Kenzie Marshmallow" required="" type="text"/>
+</div>
+<div>
+<label class="font-label-caps text-[10px] text-[#e9c349] block mb-2 uppercase">Categoría</label>
+<select class="w-full bg-white text-black py-2 px-3 rounded font-body-sm cursor-pointer" id="prod-category">
+<option value="Perfumes Mujer">Perfumes Mujer</option>
+<option value="Perfumes Hombre">Perfumes Hombre</option>
+<option value="Moda">Moda</option>
+<option value="Bolsos">Bolsos</option>
+<option value="Zapatos">Zapatos</option>
+<option value="Bisutería">Bisutería</option>
+<option value="Vestidos de Gala">Vestidos de Gala</option>
+</select>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="font-label-caps text-[10px] text-[#e9c349] block mb-2 uppercase">Precio (€)</label>
+<input class="w-full bg-white text-black py-2 px-3 rounded font-body-lg" id="prod-price" placeholder="0.00" required="" step="0.01" type="number"/>
+</div>
+<div>
+<label class="font-label-caps text-[10px] text-[#e9c349] block mb-2 uppercase">Stock</label>
+<input class="w-full bg-white text-black py-2 px-3 rounded font-body-lg" id="prod-stock" placeholder="0" required="" type="number"/>
+</div>
+</div>
+<div>
+<label class="font-label-caps text-[10px] text-[#e9c349] block mb-2 uppercase">Descripción Breve</label>
+<textarea class="w-full bg-white text-black py-2 px-3 rounded font-body-sm resize-none" id="prod-desc" placeholder="Breve descripción para el catálogo..." rows="3"></textarea>
+</div>
+</div>
+<div class="space-y-6">
+<div>
+<label class="font-label-caps text-[10px] text-[#e9c349] block mb-2 uppercase">Imagen del Producto</label>
+<label class="custom-file-upload group border-2 border-dashed border-outline-variant hover:border-[#e9c349] p-6 flex flex-col items-center justify-center cursor-pointer transition-all rounded-lg bg-[#2f312e]">
+<input accept="image/*" class="hidden" id="prod-file-input" type="file"/>
+<span class="material-symbols-outlined text-4xl mb-2 text-outline-variant group-hover:text-[#e9c349] transition-colors">add_a_photo</span>
+<p class="font-label-caps text-[10px] uppercase tracking-widest text-outline-variant group-hover:text-[#e9c349]">Subir desde dispositivo</p>
+</label>
+<input id="prod-img-base64" type="hidden"/>
+<div class="mt-4 w-full aspect-square bg-[#1a1c19] rounded-lg border border-outline-variant/30 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover hidden" id="img-preview" src=""/>
+<div class="flex flex-col items-center gap-2 opacity-50 text-outline-variant" id="img-placeholder">
+<span class="material-symbols-outlined text-4xl">image</span>
+<span class="font-label-caps text-[8px] uppercase">Vista Previa</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-6 flex gap-4 border-t border-outline-variant/30">
+<button class="primary-btn-editorial flex-1 py-4 font-label-caps tracking-widest text-[11px] uppercase rounded" id="save-product-btn" type="submit">Sincronizar y Guardar en Hub</button>
+<button class="px-6 py-4 font-label-caps tracking-widest text-[11px] uppercase border border-outline-variant text-outline-variant hover:bg-[#4c4546] hover:text-white transition-colors rounded" id="cancel-modal" type="button">Cancelar</button>
+</div>
+</form>
+</div>
+</div>
+<script>
+        // --- Core Data Management ---
+        const DEFAULT_IMG = "https://images.unsplash.com/photo-1594125350320-3b7bc2ba524a?auto=format&fit=crop&q=80&w=600";
+        const defaultProducts = [
+            { id: "SP-8821", name: "Kenzie Marshmallow", category: "Perfumes Mujer", price: 45.00, stock: 24, img: "https://images.unsplash.com/photo-1594125350320-3b7bc2ba524a?auto=format&fit=crop&q=80&w=600", desc: "Fragancia dulce y sofisticada con notas de malvavisco." },
+            { id: "SP-8822", name: "Ameerat Al Arab", category: "Perfumes Mujer", price: 65.00, stock: 12, img: "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&q=80&w=600", desc: "Esencia real árabe, intensa y floral." },
+            { id: "SP-9901", name: "Vestido Gala Noche", category: "Vestidos de Gala", price: 189.90, stock: 4, img: "https://images.unsplash.com/photo-1539008835279-43468093d237?auto=format&fit=crop&q=80&w=600", desc: "Vestido elegante para eventos especiales." },
+            { id: "SP-1002", name: "Bolso de Cuero Clásico", category: "Bolsos", price: 120.00, stock: 15, img: "https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&q=80&w=600", desc: "Bolso de cuero auténtico, diseño atemporal." },
+            { id: "SP-2045", name: "Zapatos de Tacón Stiletto", category: "Zapatos", price: 85.50, stock: 8, img: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&q=80&w=600", desc: "Elegancia en cada paso, color negro." },
+            { id: "SP-3011", name: "Collar de Perlas Finas", category: "Bisutería", price: 55.00, stock: 30, img: "https://images.unsplash.com/photo-1599643478514-4a1101859efc?auto=format&fit=crop&q=80&w=600", desc: "Perlas cultivadas de alta calidad." },
+            { id: "SP-4050", name: "Abrigo de Lana Premium", category: "Moda", price: 210.00, stock: 5, img: "https://images.unsplash.com/photo-1539533113208-f6df8cc8b543?auto=format&fit=crop&q=80&w=600", desc: "Abrigo cálido y estilizado para el invierno." },
+            { id: "SP-5001", name: "Oud Wood Intense", category: "Perfumes Hombre", price: 145.00, stock: 10, img: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80&w=600", desc: "Fragancia masculina con notas profundas de madera de Oud." }
+        ];
+
+        let products = JSON.parse(localStorage.getItem('soraya_inventory')) || defaultProducts;
+
+        function updateStorage() {
+            localStorage.setItem('soraya_inventory', JSON.stringify(products));
+            renderInventory();
+        }
+
+        // --- Auth Protection ---
+        const loginOverlay = document.getElementById('main-login-overlay');
+        const mainUI = document.getElementById('admin-main-wrapper');
+        const pwInput = document.getElementById('main-password-input');
+        const loginBtn = document.getElementById('main-login-btn');
+        const errorMsg = document.getElementById('login-error');
+
+        function tryLogin() {
+            if (pwInput.value === 'SORAYA1990') {
+                loginOverlay.classList.add('opacity-0');
+                setTimeout(() => {
+                    loginOverlay.classList.add('hidden');
+                    mainUI.classList.remove('section-hidden');
+                    document.body.classList.remove('system-lock');
+                    renderInventory();
+                }, 400);
+                sessionStorage.setItem('soraya_master_auth', 'active');
+            } else {
+                errorMsg.classList.remove('opacity-0');
+                pwInput.classList.add('border-error');
+                setTimeout(() => {
+                    errorMsg.classList.add('opacity-0');
+                    pwInput.classList.remove('border-error');
+                }, 2000);
+            }
+        }
+
+        loginBtn.addEventListener('click', tryLogin);
+        pwInput.addEventListener('keypress', (e) => e.key === 'Enter' && tryLogin());
+
+        // Password visibility toggle
+        const togglePw = document.getElementById('toggle-pw-visibility');
+        const pwIcon = document.getElementById('pw-visibility-icon');
+
+        togglePw.addEventListener('click', () => {
+            if (pwInput.type === 'password') {
+                pwInput.type = 'text';
+                pwIcon.innerText = 'visibility';
+            } else {
+                pwInput.type = 'password';
+                pwIcon.innerText = 'visibility_off';
+            }
+        });
+
+        // Logout
+        const logoutBtn = document.getElementById('logout-btn');
+        logoutBtn.addEventListener('click', () => {
+            sessionStorage.removeItem('soraya_master_auth');
+            loginOverlay.classList.remove('hidden');
+            setTimeout(() => {
+                loginOverlay.classList.remove('opacity-0');
+                mainUI.classList.add('section-hidden');
+                document.body.classList.add('system-lock');
+            }, 50);
+        });
+
+        // Session recovery
+        if (sessionStorage.getItem('soraya_master_auth') === 'active') {
+            loginOverlay.classList.add('hidden');
+            mainUI.classList.remove('section-hidden');
+            document.body.classList.remove('system-lock');
+            window.addEventListener('DOMContentLoaded', renderInventory);
+        }
+
+        // --- Sidebar Logic ---
+        const sidebar = document.getElementById('sidebar');
+        const mobileSidebarToggle = document.getElementById('mobile-sidebar-toggle');
+        const mobileSidebarClose = document.getElementById('mobile-sidebar-close');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+        function toggleSidebar() {
+            const isClosed = sidebar.classList.contains('-translate-x-full');
+            if (isClosed) {
+                sidebar.classList.remove('-translate-x-full');
+                sidebarOverlay.classList.remove('hidden');
+            } else {
+                sidebar.classList.add('-translate-x-full');
+                sidebarOverlay.classList.add('hidden');
+            }
+        }
+
+        mobileSidebarToggle?.addEventListener('click', toggleSidebar);
+        mobileSidebarClose?.addEventListener('click', toggleSidebar);
+        sidebarOverlay?.addEventListener('click', toggleSidebar);
+
+        const navInventory = document.getElementById('nav-inventory');
+        const navExport = document.getElementById('nav-export');
+        const sectionInventory = document.getElementById('section-inventory');
+        const sectionExport = document.getElementById('section-export');
+        const pageTitle = document.getElementById('page-title');
+
+        function switchSection(section) {
+            if (section === 'inventory') {
+                sectionInventory.classList.remove('section-hidden');
+                sectionExport.classList.add('section-hidden');
+                navInventory.className = "nav-link flex items-center gap-3 py-3 px-4 rounded-lg font-bold bg-[#e9c349]/20 text-[#e9c349] translate-x-1 transition-transform border border-[#e9c349]/30";
+                navExport.className = "nav-link flex items-center gap-3 py-3 px-4 rounded-lg text-outline-variant hover:bg-[#2f312e] transition-all hover:text-[#e9c349]";
+                pageTitle.innerText = "Inventario Maestro";
+            } else if (section === 'export') {
+                sectionExport.classList.remove('section-hidden');
+                sectionInventory.classList.add('section-hidden');
+                navExport.className = "nav-link flex items-center gap-3 py-3 px-4 rounded-lg font-bold bg-[#e9c349]/20 text-[#e9c349] translate-x-1 transition-transform border border-[#e9c349]/30";
+                navInventory.className = "nav-link flex items-center gap-3 py-3 px-4 rounded-lg text-outline-variant hover:bg-[#2f312e] transition-all hover:text-[#e9c349]";
+                pageTitle.innerText = "Generador de Código";
+            }
+            if (window.innerWidth < 1024 && !sidebar.classList.contains('-translate-x-full')) {
+                toggleSidebar();
+            }
+        }
+
+        navInventory.addEventListener('click', (e) => { e.preventDefault(); switchSection('inventory'); });
+        navExport.addEventListener('click', (e) => { e.preventDefault(); switchSection('export'); });
+
+        // --- Inventory UI ---
+        const inventoryTable = document.getElementById('inventory-tbody');
+        const searchBox = document.getElementById('search-input');
+
+        function renderInventory(query = "") {
+            inventoryTable.innerHTML = '';
+            const filtered = products.filter(p => 
+                p.name.toLowerCase().includes(query.toLowerCase()) || 
+                p.category.toLowerCase().includes(query.toLowerCase()) ||
+                p.id.toLowerCase().includes(query.toLowerCase())
+            );
+
+            let totalVal = 0;
+            let lowStockCount = 0;
+
+            filtered.forEach((p, index) => {
+                const originalIdx = products.findIndex(orig => orig.id === p.id);
+                totalVal += (p.price * p.stock);
+                if (p.stock <= 5) lowStockCount++;
+
+                const row = document.createElement('tr');
+                row.className = "hover:bg-[#4c4546]/40 transition-all group border-b border-outline-variant/20 last:border-0";
+                row.innerHTML = `
+                    <td class="px-6 py-4">
+                        <div class="w-14 h-14 bg-[#2f312e] rounded overflow-hidden border border-[#e9c349]/20 shadow-[0_0_10px_rgba(233,195,73,0.1)]">
+                            <img src="${p.img}" class="w-full h-full object-cover" alt="${p.name}" onerror="this.src='${DEFAULT_IMG}'">
+                        </div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <p class="font-title-md text-[15px] leading-tight text-white group-hover:text-[#e9c349] transition-colors">${p.name}</p>
+                        <p class="font-label-caps text-[9px] text-outline-variant/80 tracking-wider">ID: ${p.id}</p>
+                    </td>
+                    <td class="px-6 py-4">
+                        <span class="inline-block px-2 py-0.5 bg-[#2f312e] border border-outline-variant/40 rounded text-[9px] font-label-caps uppercase tracking-wider text-outline-variant">
+                            ${p.category}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 font-body-lg font-bold text-[#e9c349]">${parseFloat(p.price).toFixed(2)} €</td>
+                    <td class="px-6 py-4">
+                        <div class="flex items-center gap-2">
+                            <span class="font-body-lg ${p.stock <= 5 ? 'text-error font-bold' : 'text-white'}">${p.stock}</span>
+                            ${p.stock <= 5 ? '<span class="material-symbols-outlined text-error text-[16px]" title="Stock Bajo">warning</span>' : ''}
+                        </div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <div class="flex items-center gap-2 justify-end">
+                            <button class="p-2 text-outline-variant hover:text-[#e9c349] transition-colors" onclick="editProduct(${originalIdx})">
+                                <span class="material-symbols-outlined text-[18px]">edit</span>
+                            </button>
+                            <button class="p-2 text-outline-variant hover:text-error transition-colors" onclick="deleteProduct(${originalIdx})">
+                                <span class="material-symbols-outlined text-[18px]">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                inventoryTable.appendChild(row);
+            });
+
+            document.getElementById('stat-total-products').innerText = products.length;
+            document.getElementById('stat-low-stock').innerText = lowStockCount;
+            document.getElementById('stat-total-value').innerText = totalVal.toFixed(2) + ' €';
+        }
+
+        searchBox.addEventListener('input', (e) => renderInventory(e.target.value));
+
+        // --- Notifications ---
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-4 right-4 bg-[#e9c349] text-[#1a1c19] px-6 py-3 rounded-lg font-label-caps tracking-widest text-[11px] shadow-lg z-[200] transform transition-all duration-300 translate-y-full opacity-0 flex items-center gap-2 font-bold';
+            toast.innerHTML = `<span class="material-symbols-outlined text-[16px]">check_circle</span> ${message}`;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.classList.remove('translate-y-full', 'opacity-0');
+            }, 10);
+            
+            setTimeout(() => {
+                toast.classList.add('translate-y-full', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // --- Modal Logic ---
+        const modal = document.getElementById('product-modal');
+        const openAddModalBtn = document.getElementById('open-add-modal');
+        const closeProductModalBtn = document.getElementById('close-product-modal');
+        const cancelModalBtn = document.getElementById('cancel-modal');
+        const productForm = document.getElementById('product-form');
+        
+        const fIndex = document.getElementById('edit-index');
+        const fName = document.getElementById('prod-name');
+        const fCategory = document.getElementById('prod-category');
+        const fPrice = document.getElementById('prod-price');
+        const fStock = document.getElementById('prod-stock');
+        const fDesc = document.getElementById('prod-desc');
+        const fFile = document.getElementById('prod-file-input');
+        const fBase64 = document.getElementById('prod-img-base64');
+        const imgPreview = document.getElementById('img-preview');
+        const imgPlaceholder = document.getElementById('img-placeholder');
+        const modalTitle = document.getElementById('product-modal-title');
+
+        function openModal(index = -1) {
+            fIndex.value = index;
+            if (index > -1) {
+                const p = products[index];
+                modalTitle.innerText = "Editar Producto";
+                fName.value = p.name;
+                fCategory.value = p.category;
+                fPrice.value = p.price;
+                fStock.value = p.stock;
+                fDesc.value = p.desc || "";
+                fBase64.value = p.img;
+                if(p.img) {
+                    imgPreview.src = p.img;
+                    imgPreview.classList.remove('hidden');
+                    imgPlaceholder.classList.add('hidden');
+                } else {
+                    imgPreview.src = "";
+                    imgPreview.classList.add('hidden');
+                    imgPlaceholder.classList.remove('hidden');
+                }
+            } else {
+                modalTitle.innerText = "Añadir Producto Nuevo";
+                productForm.reset();
+                fIndex.value = -1;
+                fBase64.value = "";
+                imgPreview.src = "";
+                imgPreview.classList.add('hidden');
+                imgPlaceholder.classList.remove('hidden');
+            }
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        openAddModalBtn.addEventListener('click', () => openModal(-1));
+        closeProductModalBtn.addEventListener('click', closeModal);
+        cancelModalBtn.addEventListener('click', closeModal);
+
+        fFile.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    const base64 = event.target.result;
+                    fBase64.value = base64;
+                    imgPreview.src = base64;
+                    imgPreview.classList.remove('hidden');
+                    imgPlaceholder.classList.add('hidden');
+                };
+                reader.readAsDataURL(file</script></body></html>
