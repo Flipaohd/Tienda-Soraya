@@ -1,0 +1,370 @@
+<html class="light" lang="es"><head></head><body class="text-on-background font-body-lg selection:bg-secondary-fixed selection:text-on-secondary-fixed overflow-x-hidden min-h-screen">
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Catálogo - Soraya Boutique</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#1b1b1b",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#ffe088",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f1f1ec",
+                        "surface-container-highest": "#e3e3de",
+                        "tertiary-fixed": "#ffdad9",
+                        "on-tertiary-fixed": "#2f1314",
+                        "inverse-primary": "#c6c6c6",
+                        "on-primary-fixed": "#1b1b1b",
+                        "on-tertiary-container": "#a47979",
+                        "on-secondary-container": "#745c00",
+                        "outline-variant": "#cfc4c5",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2f312e",
+                        "surface-bright": "#fafaf5",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#241a00",
+                        "secondary": "#735c00",
+                        "surface-dim": "#dadad5",
+                        "tertiary-container": "#2f1314",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#574500",
+                        "on-primary-container": "#848484",
+                        "on-surface": "#1a1c19",
+                        "error": "#ba1a1a",
+                        "background": "#fafaf5",
+                        "surface-container-high": "#e8e8e3",
+                        "primary": "#000000",
+                        "on-surface-variant": "#4c4546",
+                        "primary-fixed": "#e2e2e2",
+                        "secondary-fixed-dim": "#e9c349",
+                        "tertiary-fixed-dim": "#ecbaba",
+                        "surface": "#fafaf5",
+                        "on-background": "#1a1c19",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#f4f4ef",
+                        "on-tertiary-fixed-variant": "#613d3e",
+                        "outline": "#7e7576",
+                        "surface-variant": "#e3e3de",
+                        "secondary-container": "#fed65b",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "tertiary": "#000000",
+                        "surface-tint": "#5e5e5e",
+                        "on-primary-fixed-variant": "#474747",
+                        "surface-container": "#eeeee9",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "gutter": "24px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "container-max": "1280px",
+                        "section-gap": "120px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Bodoni Moda"],
+                        "headline-lg": ["Bodoni Moda"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "title-md": ["Bodoni Moda"],
+                        "headline-lg-mobile": ["Bodoni Moda"],
+                        "label-caps": ["Hanken Grotesk"],
+                        "body-sm": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "title-md": ["24px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.15em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>body { background: linear-gradient(135deg, #fafaf5 0%, #eeeee9 100%); } .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; } .glass-nav { background: rgba(250, 250, 245, 0.4); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.6); } .glass-card { background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.8); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); } .glass-card:hover { transform: translateY(-8px); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1); border-color: rgba(255,255,255,1); } .btn-catalog-primary { background-color: #FFD700; color: #000000; font-weight: 700 !important; letter-spacing: 0.05em; text-transform: uppercase; transition: all 0.3s ease; position: relative; overflow: hidden; border-radius: 9999px; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 24px; cursor: pointer; } .btn-catalog-primary:hover { background-color: #FFC107; box-shadow: 0 4px 20px rgba(255, 215, 0, 0.5); transform: scale(1.02); } #cart-sidebar { transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); } #cart-overlay { transition: opacity 0.3s ease; } html { scroll-behavior: smooth; }</style>
+<!-- Pink Shipping Banner -->
+<div class="bg-[#FF00FF] text-white text-center py-3 font-label-caps text-[9px] md:text-[11px] tracking-[0.25em] uppercase sticky top-0 z-[110] flex items-center justify-center gap-2 md:gap-3 shadow-md px-4">
+<span class="material-symbols-outlined text-[14px] md:text-[16px]">local_shipping</span>
+<span class="font-bold">ENVÍO 24/7 A TODA ESPAÑA</span>
+</div>
+<!-- Header -->
+<header class="sticky top-[38px] md:top-[42px] left-0 w-full z-[100] glass-nav h-16 md:h-20 flex justify-between items-center px-4 md:px-margin-desktop transition-all duration-300">
+<div class="flex items-center gap-2 md:gap-gutter">
+<button class="lg:hidden material-symbols-outlined text-primary text-[24px]">menu</button>
+<a href="index.html">
+<img alt="Soraya Boutique" class="h-8 md:h-12 w-auto object-contain cursor-pointer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPnQjm4kep3KE0oxnctFpxj0mD3KQZDNsgl05wLAGIFY34y-NKr0gnr9tJH0sXIq8ZD45INDOi9quOtONVvXOgO3uHk0NLlhp8T_kyomkoq5zTLRNwCO0AmUEhiuKtp2dNks2YTbeNxiSLINTF1PqRx2IZrWpHMjqXtuuOD48wimImc8LF-FzpHY7iKJxAfGgXB7xfuyzaZF5YW223sdzytPDPwGkGl__gRfsqZEJ9fs6jhTBwj7ie-t7fUYy6iLYc7pM3XnptSJsA"/>
+</a>
+</div>
+<nav class="hidden lg:flex items-center gap-10">
+<a class="font-label-caps text-[11px] text-on-surface-variant hover:text-primary transition-all pb-1 uppercase tracking-widest relative group" href="index.html">
+            Inicio
+            <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-primary transition-all duration-300 group-hover:w-full"></span>
+</a>
+<a class="font-label-caps text-[11px] text-on-surface-variant hover:text-primary transition-all pb-1 uppercase tracking-widest relative group" href="#perfumes-mujer">Perfumes Mujer</a>
+<a class="font-label-caps text-[11px] text-on-surface-variant hover:text-primary transition-all pb-1 uppercase tracking-widest relative group" href="#perfumes-hombre">Perfumes Hombre</a>
+<a class="font-label-caps text-[11px] text-on-surface-variant hover:text-primary transition-all pb-1 uppercase tracking-widest relative group" href="#moda">Moda</a>
+<a class="font-label-caps text-[11px] text-on-surface-variant hover:text-primary transition-all pb-1 uppercase tracking-widest relative group" href="#bolsos">Bolsos</a>
+<a class="font-label-caps text-[11px] text-on-surface-variant hover:text-primary transition-all pb-1 uppercase tracking-widest relative group" href="#zapatos">Zapatos</a>
+<a class="font-label-caps text-[11px] text-on-surface-variant hover:text-primary transition-all pb-1 uppercase tracking-widest relative group" href="#cosmetica">Cosmética</a>
+</nav>
+<div class="flex items-center gap-3 md:gap-8">
+<div class="relative flex items-center group hidden sm:flex">
+<input class="w-0 focus:w-40 md:focus:w-64 transition-all duration-500 border-b border-transparent focus:border-primary bg-transparent outline-none font-body-sm px-2 text-primary" id="search-input" placeholder="Buscar..." type="text"/>
+<button class="material-symbols-outlined text-primary hover:scale-110 transition-transform" id="search-btn">search</button>
+</div>
+<button class="sm:hidden material-symbols-outlined text-primary hover:scale-110 transition-transform">search</button>
+<button class="material-symbols-outlined text-primary hover:scale-110 transition-transform relative" id="cart-toggle-btn">
+            shopping_bag
+            <span class="absolute -top-1 -right-1 bg-[#FF00FF] text-white text-[10px] w-[18px] h-[18px] rounded-full flex items-center justify-center font-bold" id="cart-badge">0</span>
+</button>
+<a class="hidden sm:block material-symbols-outlined text-primary hover:scale-110 transition-transform" href="admin.html">person</a>
+</div>
+</header>
+<main class="pb-16 md:pb-section-gap">
+<div class="pt-16 md:pt-24 pb-12 md:pb-28 text-center px-4 md:px-margin-desktop max-w-container-max mx-auto">
+<h1 class="font-display-lg text-[32px] md:text-display-lg mb-4 md:mb-6 tracking-tight leading-tight text-primary">Catálogo Exclusivo</h1>
+<div class="w-12 md:w-16 h-[2px] bg-primary mx-auto mb-4 md:mb-6"></div>
+<p class="font-body-lg text-on-surface-variant max-w-3xl mx-auto leading-relaxed text-[15px] md:text-body-lg italic opacity-80">Una selección curada de piezas de lujo organizadas por colecciones para una experiencia de revista de alta costura.</p>
+</div>
+<!-- Static Structured Catalog Container -->
+<div class="space-y-16 md:space-y-section-gap" id="catalog-container">
+<!-- PERFUMES MUJER -->
+<section class="scroll-mt-32 product-section" id="perfumes-mujer">
+<div class="max-w-container-max mx-auto px-4 md:px-margin-desktop">
+<div class="flex justify-between items-end mb-8 md:mb-12 border-b border-outline-variant/30 pb-4 md:pb-6">
+<div>
+<h2 class="font-headline-lg text-[24px] md:text-headline-lg tracking-wide category-heading mb-1 md:mb-2">Perfumes Mujer</h2>
+<p class="text-on-surface-variant text-[13px] md:text-body-sm italic">Fragancias árabes que definen una era.</p>
+</div>
+<span class="font-label-caps text-[10px] md:text-label-caps text-outline tracking-[0.2em] uppercase hidden sm:block">Signature Collection</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-x-gutter gap-y-8 md:gap-y-16" id="perfumes-mujer-grid">
+<!-- Product Item 1 -->
+<div class="glass-card p-3 md:p-4 flex flex-col group h-full" data-id="pm-001" data-img="https://lh3.googleusercontent.com/aida-public/AB6AXuD_Kp4Je-P4w6dWorxKztF8dRd-FtteahRauMRQPJ9KvyE97TDOyfOQLoqgjKVBsSRYofrmtVUSkLIVoV3f7R4CBXP3YuP8mTsvteasNd4YQcTGolnxOoGcB4OkH-i3JrVHZxdd5GbzPS9OwNRXf0kvtB88_lnewq44jOaioPxKaiG_tPX1Ikk6zqIplqjq3Q0k9cHF6nn_GwG8KS6hNSmy0K3hBAAUQQPEyOIyCD81PUjzX_expAvHTBUkJ4loE6SlW6e-UHfyX5og" data-name="Ameerat Al Arab" data-price="45.00">
+<div class="aspect-[3/4] mb-4 md:mb-6 overflow-hidden relative bg-surface-container-low rounded-xl">
+<img alt="Ameerat Al Arab" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_Kp4Je-P4w6dWorxKztF8dRd-FtteahRauMRQPJ9KvyE97TDOyfOQLoqgjKVBsSRYofrmtVUSkLIVoV3f7R4CBXP3YuP8mTsvteasNd4YQcTGolnxOoGcB4OkH-i3JrVHZxdd5GbzPS9OwNRXf0kvtB88_lnewq44jOaioPxKaiG_tPX1Ikk6zqIplqjq3Q0k9cHF6nn_GwG8KS6hNSmy0K3hBAAUQQPEyOIyCD81PUjzX_expAvHTBUkJ4loE6SlW6e-UHfyX5og"/>
+</div>
+<h3 class="font-title-md text-[15px] md:text-[18px] mb-1 md:mb-2 line-clamp-1">Ameerat Al Arab</h3>
+<p class="text-on-surface-variant text-[12px] md:text-body-sm mb-3 md:mb-4 flex-grow italic line-clamp-2 md:line-clamp-none">Elegancia real con el toque cautivador de la cultura árabe.</p>
+<div class="flex items-center justify-between mt-auto pt-3 md:pt-4 border-t border-outline-variant/20">
+<span class="font-title-md text-[14px] md:text-[18px] text-primary">45,00€</span>
+<button class="btn-catalog-primary !px-2 md:!px-4 py-1.5 md:py-2 add-to-cart-btn">
+<span class="material-symbols-outlined text-[14px] md:text-[16px]">shopping_cart</span>
+<span class="text-[9px] md:text-[11px] font-bold hidden sm:inline">COMPRAR</span>
+</button>
+</div>
+</div>
+<!-- Product Item 2 -->
+<div class="glass-card p-3 md:p-4 flex flex-col group h-full" data-id="pm-002" data-img="https://lh3.googleusercontent.com/aida-public/AB6AXuCpxHV-BmztfmDEkV7D4qZ7_cnbl0_Ddrj0FtxB122-Mp10M-vT8kwWm59taP7gqAulXPMFo-FM0pOYel1yN7qm5c0ZiGn69j1dc4kHD9ymCp-hbfKmzVzOiv29EPbsEtxC9Kxz9hYsyzFsSnmj5IHwXkCcKe1goy7MT9ly3yaV93xIb7-DcRDnbrDCxTaCWaGumWKtOixYyxYGZWNXTFqAleUGZZs34lWxdlZJDuyTkWgIqjIbFfSpOqD85PKC1ri1YjpEgkbulxN4" data-name="Armaf Delight" data-price="52.00">
+<div class="aspect-[3/4] mb-4 md:mb-6 overflow-hidden relative bg-surface-container-low rounded-xl">
+<img alt="Armaf Delight" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpxHV-BmztfmDEkV7D4qZ7_cnbl0_Ddrj0FtxB122-Mp10M-vT8kwWm59taP7gqAulXPMFo-FM0pOYel1yN7qm5c0ZiGn69j1dc4kHD9ymCp-hbfKmzVzOiv29EPbsEtxC9Kxz9hYsyzFsSnmj5IHwXkCcKe1goy7MT9ly3yaV93xIb7-DcRDnbrDCxTaCWaGumWKtOixYyxYGZWNXTFqAleUGZZs34lWxdlZJDuyTkWgIqjIbFfSpOqD85PKC1ri1YjpEgkbulxN4"/>
+</div>
+<h3 class="font-title-md text-[15px] md:text-[18px] mb-1 md:mb-2 line-clamp-1">Armaf Delight</h3>
+<p class="text-on-surface-variant text-[12px] md:text-body-sm mb-3 md:mb-4 flex-grow italic line-clamp-2 md:line-clamp-none">Una delicia olfativa que despierta los sentidos.</p>
+<div class="flex items-center justify-between mt-auto pt-3 md:pt-4 border-t border-outline-variant/20">
+<span class="font-title-md text-[14px] md:text-[18px] text-primary">52,00€</span>
+<button class="btn-catalog-primary !px-2 md:!px-4 py-1.5 md:py-2 add-to-cart-btn">
+<span class="material-symbols-outlined text-[14px] md:text-[16px]">shopping_cart</span>
+<span class="text-[9px] md:text-[11px] font-bold hidden sm:inline">COMPRAR</span>
+</button>
+</div>
+</div>
+<!-- Product Item 3 -->
+<div class="glass-card p-3 md:p-4 flex flex-col group h-full" data-id="pm-003" data-img="https://lh3.googleusercontent.com/aida-public/AB6AXuBOTZIsnvq8NUeegpEA7GTEsRlmlzVxsWQd5ZpFXNptOMB5a-NqVUuArlvOUuSWfGK3-508GM0ze2-ssFrOhDtjUQ8GMt3wmqmSMNvjejOQSfF-C3x_WX7KPybWEAOPa52Vmo9Zu3Zcc9241_LQDZU1Kvrihedvo_3vT0-Zjymck95KaHrkabiFOQIU9sbdIMjcu9Jwb0Xc7-vrwMf2qq01gAUiueZ60pxML-0dkf7yUC3k5H0qu6LEPqYEk0ZA2fNmqTl3QRzZlGRD" data-name="Ameerat Prive Rose" data-price="49.00">
+<div class="aspect-[3/4] mb-4 md:mb-6 overflow-hidden relative bg-surface-container-low rounded-xl">
+<img alt="Ameerat Al Arab Prive Rose" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOTZIsnvq8NUeegpEA7GTEsRlmlzVxsWQd5ZpFXNptOMB5a-NqVUuArlvOUuSWfGK3-508GM0ze2-ssFrOhDtjUQ8GMt3wmqmSMNvjejOQSfF-C3x_WX7KPybWEAOPa52Vmo9Zu3Zcc9241_LQDZU1Kvrihedvo_3vT0-Zjymck95KaHrkabiFOQIU9sbdIMjcu9Jwb0Xc7-vrwMf2qq01gAUiueZ60pxML-0dkf7yUC3k5H0qu6LEPqYEk0ZA2fNmqTl3QRzZlGRD"/>
+</div>
+<h3 class="font-title-md text-[15px] md:text-[18px] mb-1 md:mb-2 line-clamp-1">Ameerat Prive Rose</h3>
+<p class="text-on-surface-variant text-[12px] md:text-body-sm mb-3 md:mb-4 flex-grow italic line-clamp-2 md:line-clamp-none">Lujo y sofisticación en cada gota.</p>
+<div class="flex items-center justify-between mt-auto pt-3 md:pt-4 border-t border-outline-variant/20">
+<span class="font-title-md text-[14px] md:text-[18px] text-primary">49,00€</span>
+<button class="btn-catalog-primary !px-2 md:!px-4 py-1.5 md:py-2 add-to-cart-btn">
+<span class="material-symbols-outlined text-[14px] md:text-[16px]">shopping_cart</span>
+<span class="text-[9px] md:text-[11px] font-bold hidden sm:inline">COMPRAR</span>
+</button>
+</div>
+</div>
+<!-- Product Item 4 -->
+<div class="glass-card p-3 md:p-4 flex flex-col group h-full" data-id="pm-004" data-img="https://lh3.googleusercontent.com/aida-public/AB6AXuA8L8p0WQoJVLyqy2Pv5S6fU0j66yokNM96yxKFMbueKjOii7j8udUdBhwgUhJ9JL82izd1OGfde7t0c7FOXutmfREyK4hKYKTIiY_vW8a21KxFwMjmdFhrg_HISUBHGI_XcWbdvOxq1CKHjOFOP7MdyOEWd2FP78gqKwENWFk_DSarfxuuxuA0YutntyRLw4kxnrPe11esAEoLKbEoO1U948CeDdDfnOitfjKMHElfX8hMLsetEiyiBzkHOtvVsXoiZWzN6Z573wRk" data-name="Ameerat Al Arab Red" data-price="47.00">
+<div class="aspect-[3/4] mb-4 md:mb-6 overflow-hidden relative bg-surface-container-low rounded-xl">
+<img alt="Ameerat Al Arab Red" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8L8p0WQoJVLyqy2Pv5S6fU0j66yokNM96yxKFMbueKjOii7j8udUdBhwgUhJ9JL82izd1OGfde7t0c7FOXutmfREyK4hKYKTIiY_vW8a21KxFwMjmdFhrg_HISUBHGI_XcWbdvOxq1CKHjOFOP7MdyOEWd2FP78gqKwENWFk_DSarfxuuxuA0YutntyRLw4kxnrPe11esAEoLKbEoO1U948CeDdDfnOitfjKMHElfX8hMLsetEiyiBzkHOtvVsXoiZWzN6Z573wRk"/>
+</div>
+<h3 class="font-title-md text-[15px] md:text-[18px] mb-1 md:mb-2 line-clamp-1">Ameerat Al Arab Red</h3>
+<p class="text-on-surface-variant text-[12px] md:text-body-sm mb-3 md:mb-4 flex-grow italic line-clamp-2 md:line-clamp-none">Pasión e intensidad para la mujer moderna.</p>
+<div class="flex items-center justify-between mt-auto pt-3 md:pt-4 border-t border-outline-variant/20">
+<span class="font-title-md text-[14px] md:text-[18px] text-primary">47,00€</span>
+<button class="btn-catalog-primary !px-2 md:!px-4 py-1.5 md:py-2 add-to-cart-btn">
+<span class="material-symbols-outlined text-[14px] md:text-[16px]">shopping_cart</span>
+<span class="text-[9px] md:text-[11px] font-bold hidden sm:inline">COMPRAR</span>
+</button>
+</div>
+</div>
+<!-- Product Item 5 -->
+<div class="glass-card p-3 md:p-4 flex flex-col group h-full" data-id="pm-005" data-img="https://lh3.googleusercontent.com/aida-public/AB6AXuAnk7sGXwHPmg1h3N7KVhwW9c2w0HtK1g8jMm5JaB2sZ0J6zTIOgxPt2vzkZOJAr9I5X2NMk8XufHydmW7Xh0tA0ir7wVNdxzbMxbern3dtbgxb8fErwu-u4P8XryjdrxkjD2ZTV3MRnmbbk4vtmwSHulA3BgLWxSBL-Gjuwfo1qbCG5u0QL3Oodt1fEf34iLjQrd9--mXwepQh09HtEM_9u0SSxAKYCOHZ_sXvim0qmGr6VllPSt0wL8CrynTt5oEIEfiJOJno9wkV" data-name="Yara Lattafa" data-price="38.00">
+<div class="aspect-[3/4] mb-4 md:mb-6 overflow-hidden relative bg-surface-container-low rounded-xl">
+<img alt="Yara Lattafa Pink" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnk7sGXwHPmg1h3N7KVhwW9c2w0HtK1g8jMm5JaB2sZ0J6zTIOgxPt2vzkZOJAr9I5X2NMk8XufHydmW7Xh0tA0ir7wVNdxzbMxbern3dtbgxb8fErwu-u4P8XryjdrxkjD2ZTV3MRnmbbk4vtmwSHulA3BgLWxSBL-Gjuwfo1qbCG5u0QL3Oodt1fEf34iLjQrd9--mXwepQh09HtEM_9u0SSxAKYCOHZ_sXvim0qmGr6VllPSt0wL8CrynTt5oEIEfiJOJno9wkV"/>
+</div>
+<h3 class="font-title-md text-[15px] md:text-[18px] mb-1 md:mb-2 line-clamp-1">Yara Lattafa</h3>
+<p class="text-on-surface-variant text-[12px] md:text-body-sm mb-3 md:mb-4 flex-grow italic line-clamp-2 md:line-clamp-none">El perfume viral de TikTok, dulce y cautivador.</p>
+<div class="flex items-center justify-between mt-auto pt-3 md:pt-4 border-t border-outline-variant/20">
+<span class="font-title-md text-[14px] md:text-[18px] text-primary">38,00€</span>
+<button class="btn-catalog-primary !px-2 md:!px-4 py-1.5 md:py-2 add-to-cart-btn">
+<span class="material-symbols-outlined text-[14px] md:text-[16px]">shopping_cart</span>
+<span class="text-[9px] md:text-[11px] font-bold hidden sm:inline">COMPRAR</span>
+</button>
+</div>
+</div>
+<!-- Product Item 6 -->
+<div class="glass-card p-3 md:p-4 flex flex-col group h-full" data-id="pm-006" data-img="https://lh3.googleusercontent.com/aida-public/AB6AXuCihWVVlfxGrSYRL1qdALUBbMTjmT7_ZCuyG7msvMFCXFpjknmc5d-hiUc1hOxlUj7wb1JcoKVPepYj6mjhCVpccadWFvYxbkBYysZM7RHSoumUjk4rnhfOXmOtZtjVabmM7xX3xNKKasBVbBC8jEdsOwr3ZIFNr8-5csnCSTNMxkXE4pdm8giWW4lXYMJ_ZoL-yR3cTpACNj-1bjoqfFoPWcGvoaZaA4T_W6Rtjos1LjQbp-raDagfRmCZYqCZKWezEG5P4v3C6Rko" data-name="Kenzie Mystique Fleur" data-price="42.00">
+<div class="aspect-[3/4] mb-4 md:mb-6 overflow-hidden relative bg-surface-container-low rounded-xl">
+<img alt="Kenzie Volare" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCihWVVlfxGrSYRL1qdALUBbMTjmT7_ZCuyG7msvMFCXFpjknmc5d-hiUc1hOxlUj7wb1JcoKVPepYj6mjhCVpccadWFvYxbkBYysZM7RHSoumUjk4rnhfOXmOtZtjVabmM7xX3xNKKasBVbBC8jEdsOwr3ZIFNr8-5csnCSTNMxkXE4pdm8giWW4lXYMJ_ZoL-yR3cTpACNj-1bjoqfFoPWcGvoaZaA4T_W6Rtjos1LjQbp-raDagfRmCZYqCZKWezEG5P4v3C6Rko"/>
+</div>
+<h3 class="font-title-md text-[15px] md:text-[18px] mb-1 md:mb-2 line-clamp-1">Kenzie Mystique Fleur</h3>
+<p class="text-on-surface-variant text-[12px] md:text-body-sm mb-3 md:mb-4 flex-grow italic line-clamp-2 md:line-clamp-none">Frescura y vitalidad en una botella vibrante.</p>
+<div class="flex items-center justify-between mt-auto pt-3 md:pt-4 border-t border-outline-variant/20">
+<span class="font-title-md text-[14px] md:text-[18px] text-primary">42,00€</span>
+<button class="btn-catalog-primary !px-2 md:!px-4 py-1.5 md:py-2 add-to-cart-btn">
+<span class="material-symbols-outlined text-[14px] md:text-[16px]">shopping_cart</span>
+<span class="text-[9px] md:text-[11px] font-bold hidden sm:inline">COMPRAR</span>
+</button>
+</div>
+</div>
+<!-- Product Item 7 -->
+<div class="glass-card p-3 md:p-4 flex flex-col group h-full" data-id="pm-007" data-img="https://lh3.googleusercontent.com/aida-public/AB6AXuAnTseseytx4XPxyv31P94ciReZEqlKe1npa6pkI3LyO-mTPnJttB9ZgS8UAvGab5_Pk7ZwAjCvbt_qVf4FfZj3pXz0e8RpaIJL5fdb5uzSDhacCR0wbTmmREuc4lSaFGub-x-jB5rIWUC08sM8bjYNxEI23vHKAAOW06iAFAPNIONs_kfcYk30PDIVaHL-dnZ02PEk8b5TPPKS2-pT2YBZuE5PiGs16UUSPHzt8lpZMdozM0pYNgp2EU_tlKb-oWs1MSFuzeyjcC6L" data-name="Candy Amour" data-price="35.00">
+<div class="aspect-[3/4] mb-4 md:mb-6 overflow-hidden relative bg-surface-container-low rounded-xl">
+<img alt="Candy Amour" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnTseseytx4XPxyv31P94ciReZEqlKe1npa6pkI3LyO-mTPnJttB9ZgS8UAvGab5_Pk7ZwAjCvbt_qVf4FfZj3pXz0e8RpaIJL5fdb5uzSDhacCR0wbTmmREuc4lSaFGub-x-jB5rIWUC08sM8bjYNxEI23vHKAAOW06iAFAPNIONs_kfcYk30PDIVaHL-dnZ02PEk8b5TPPKS2-pT2YBZuE5PiGs16UUSPHzt8lpZMdozM0pYNgp2EU_tlKb-oWs1MSFuzeyjcC6L"/>
+</div>
+<h3 class="font-title-md text-[15px] md:text-[18px] mb-1 md:mb-2 line-clamp-1">Candy Amour</h3>
+<p class="text-on-surface-variant text-[12px] md:text-body-sm mb-3 md:mb-4 flex-grow italic line-clamp-2 md:line-clamp-none">Dulzura irresistible con un toque seductor.</p>
+<div class="flex items-center justify-between mt-auto pt-3 md:pt-4 border-t border-outline-variant/20">
+<span class="font-title-md text-[14px] md:text-[18px] text-primary">35,00€</span>
+<button class="btn-catalog-primary !px-2 md:!px-4 py-1.5 md:py-2 add-to-cart-btn">
+<span class="material-symbols-outlined text-[14px] md:text-[16px]">shopping_cart</span>
+<span class="text-[9px] md:text-[11px] font-bold hidden sm:inline">COMPRAR</span>
+</button>
+</div>
+</div>
+<!-- Product Item 8 -->
+<div class="glass-card p-3 md:p-4 flex flex-col group h-full" data-id="pm-008" data-img="https://lh3.googleusercontent.com/aida-public/AB6AXuA3yooLjD3Y6mrf07phVu_j6vGjvNaS45a0aLE7mFnGyi8uN4uj2I9AHrB16cviWZijV3PCLGXLS-5jbSfdhdrsS0mCojhqlvznrFXXX_Dz9piJswFpktkWn9r8Hil43HG508CQqPys5CNr5TFXP-UYM2pX2-WB3KEZ3WheiiES0n7hN1nh1XeX9Hg_DEBgDmObfRRg_m-dMjA8p5xvDyCSGI7Nq5FPbYfiRq8KuG1Ufs9_UOcBJEDemt_O_fjIEA3b47wpSK5xhJwQ" data-name="Lara Sweet" data-price="39.00">
+<div class="aspect-[3/4] mb-4 md:mb-6 overflow-hidden relative bg-surface-container-low rounded-xl">
+<img alt="Lara Sweet" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3yooLjD3Y6mrf07phVu_j6vGjvNaS45a0aLE7mFnGyi8uN4uj2I9AHrB16cviWZijV3PCLGXLS-5jbSfdhdrsS0mCojhqlvznrFXXX_Dz9piJswFpktkWn9r8Hil43HG508CQqPys5CNr5TFXP-UYM2pX2-WB3KEZ3WheiiES0n7hN1nh1XeX9Hg_DEBgDmObfRRg_m-dMjA8p5xvDyCSGI7Nq5FPbYfiRq8KuG1Ufs9_UOcBJEDemt_O_fjIEA3b47wpSK5xhJwQ"/>
+</div>
+<h3 class="font-title-md text-[15px] md:text-[18px] mb-1 md:mb-2 line-clamp-1">Lara Sweet</h3>
+<p class="text-on-surface-variant text-[12px] md:text-body-sm mb-3 md:mb-4 flex-grow italic line-clamp-2 md:line-clamp-none">Romance encapsulado en notas florales.</p>
+<div class="flex items-center justify-between mt-auto pt-3 md:pt-4 border-t border-outline-variant/20">
+<span class="font-title-md text-[14px] md:text-[18px] text-primary">39,00€</span>
+<button class="btn-catalog-primary !px-2 md:!px-4 py-1.5 md:py-2 add-to-cart-btn">
+<span class="material-symbols-outlined text-[14px] md:text-[16px]">shopping_cart</span>
+<span class="text-[9px] md:text-[11px] font-bold hidden sm:inline">COMPRAR</span>
+</button>
+</div>
+</div>
+<!-- Product Item 9 -->
+<div class="glass-card p-3 md:p-4 flex flex-col group h-full" data-id="pm-009" data-img="https://lh3.googleusercontent.com/aida-public/AB6AXuApk2u09UEaKlMgMWeU-b3UhQBAr4LTqeNTrkA3eFNQEsNd1BJUIenUYHiX9N6Vu6f81789VSW00ILPrrEgQOHhMZan3cfXBYghun5pWza52XE0LwZxCcBiXgxonVPZoWm9QsaPg6wrFyBv7nHmBer3WyBHoHIjaQUxyY_BjuCm46GkDwvOW6dls3asJkQ81UfgpzWjRXwLddsWBiKchRosxPx-4ZtHiOIlOTjtH-ekfwtIO8lSiy_ZKYKQmBBfZCmxk3uZBNufeQXJ" data-name="Candy Amour Pink" data-price="35.00">
+<div class="aspect-[3/4] mb-4 md:mb-6 overflow-hidden relative bg-surface-container-low rounded-xl">
+<img alt="Candy Amour Pink" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApk2u09UEaKlMgMWeU-b3UhQBAr4LTqeNTrkA3eFNQEsNd1BJUIenUYHiX9N6Vu6f81789VSW00ILPrrEgQOHhMZan3cfXBYghun5pWza52XE0LwZxCcBiXgxonVPZoWm9QsaPg6wrFyBv7nHmBer3WyBHoHIjaQUxyY_BjuCm46GkDwvOW6dls3asJkQ81UfgpzWjRXwLddsWBiKchRosxPx-4ZtHiOIlOTjtH-ekfwtIO8lSiy_ZKYKQmBBfZCmxk3uZBNufeQXJ"/>
+</div>
+<h3 class="font-title-md text-[15px] md:text-[18px] mb-1 md:mb-2 line-clamp-1">Candy Amour Pink</h3>
+<p class="text-on-surface-variant text-[12px] md:text-body-sm mb-3 md:mb-4 flex-grow italic line-clamp-2 md:line-clamp-none">La versión más tierna y femenina de Candy.</p>
+<div class="flex items-center justify-between mt-auto pt-3 md:pt-4 border-t border-outline-variant/20">
+<span class="font-title-md text-[14px] md:text-[18px] text-primary">35,00€</span>
+<button class="btn-catalog-primary !px-2 md:!px-4 py-1.5 md:py-2 add-to-cart-btn">
+<span class="material-symbols-outlined text-[14px] md:text-[16px]">shopping_cart</span>
+<span class="text-[9px] md:text-[11px] font-bold hidden sm:inline">COMPRAR</span>
+</button>
+</div>
+</div>
+<!-- Product Item 10 -->
+</div></div></section></div></main>
+<!-- Cart Overlay -->
+<div class="fixed inset-0 bg-black/50 z-[120] hidden opacity-0" id="cart-overlay"></div>
+<!-- Cart Sidebar -->
+<div class="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-surface z-[130] transform translate-x-full shadow-2xl flex flex-col" id="cart-sidebar">
+<div class="p-6 border-b border-outline-variant/30 flex justify-between items-center bg-surface-container-lowest">
+<h2 class="font-headline-lg text-[24px] text-primary">Tu Cesta</h2>
+<button class="material-symbols-outlined text-primary hover:rotate-90 transition-transform" id="close-cart-btn">close</button>
+</div>
+<div class="flex-grow overflow-y-auto p-6 space-y-6" id="cart-items">
+<!-- Cart items will be injected here -->
+<div class="text-center text-on-surface-variant py-10 font-body-sm italic empty-cart-msg">Tu cesta está vacía.</div>
+</div>
+<div class="p-6 border-t border-outline-variant/30 bg-surface-container-lowest">
+<div class="flex justify-between items-center mb-6">
+<span class="font-title-md text-[18px] text-on-surface-variant">Total</span>
+<span class="font-headline-lg text-[24px] text-primary" id="cart-total">0,00€</span>
+</div>
+<button class="w-full btn-catalog-primary !py-4 text-[14px]" id="checkout-btn">
+<span class="material-symbols-outlined">send</span>
+            COMPRAR POR WHATSAPP
+        </button>
+</div>
+</div>
+<script>
+    const cart = [];
+    const waNumber = "34600751694";
+    
+    const cartSidebar = document.getElementById('cart-sidebar');
+    const cartOverlay = document.getElementById('cart-overlay');
+    const cartToggleBtn = document.getElementById('cart-toggle-btn');
+    const closeCartBtn = document.getElementById('close-cart-btn');
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartTotalEl = document.getElementById('cart-total');
+    const cartBadge = document.getElementById('cart-badge');
+    const checkoutBtn = document.getElementById('checkout-btn');
+    
+    function toggleCart() {
+        const isHidden = cartSidebar.classList.contains('translate-x-full');
+        if (isHidden) {
+            cartSidebar.classList.remove('translate-x-full');
+            cartOverlay.classList.remove('hidden');
+            setTimeout(() => cartOverlay.classList.remove('opacity-0'), 10);
+            document.body.style.overflow = 'hidden';
+        } else {
+            cartSidebar.classList.add('translate-x-full');
+            cartOverlay.classList.add('opacity-0');
+            setTimeout(() => cartOverlay.classList.add('hidden'), 300);
+            document.body.style.overflow = '';
+        }
+    }
+    
+    cartToggleBtn.addEventListener('click', toggleCart);
+    closeCartBtn.addEventListener('click', toggleCart);
+    cartOverlay.addEventListener('click', toggleCart);
+    
+    function updateCartUI() {
+        cartItemsContainer.innerHTML = '';
+        let total = 0;
+        let count = 0;
+        
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML = '<div class="text-center text-on-surface-variant py-10 font-body-sm italic empty-cart-msg">Tu cesta está vacía.</div>';
+        } else {
+            cart.forEach((item, index) => {
+                total += item.price * item.quantity;
+                count += item.quantity;
+                
+                const itemEl = document.createElement('div');
+                itemEl.className = 'flex gap-4 border-b border-outline-variant/20 pb-4';
+                itemEl.innerHTML = `
+                    <img src="${item.img}" class="w-20 h-24 object-cover rounded-lg bg-surface-container-low" alt="${item.name}">
+                    <div class="flex-grow flex flex-col">
+                        <div class="flex justify-between items-start mb-1">
+                            <h4 class="font-title-md text-[14px] leading-tight line-clamp-2">${item.name}</h4>
+                            <button class="material-symbols-outlined text-[18px] text-error hover:text-error-container" onclick="removeFromCart(${index})">delete</button>
+                        </div>
+                        <div class="font-title-</script></body></html>
